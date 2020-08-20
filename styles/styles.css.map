@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "ACAA,QAAQ;AAER,OAAO,CAAC,uGAAI",
+    "sources": [
+        "styles.scss",
+        "partials/_variables.scss",
+        "partials/_typography.scss"
+    ],
+    "names": [],
+    "file": "styles.css"
+}
