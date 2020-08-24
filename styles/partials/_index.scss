@@ -1,0 +1,36 @@
+body {
+    background-color: $bg-color;
+}
+
+
+/*cards*/
+
+.cards {
+    background-color: $card-bg;
+    border: $card-border;
+    margin-top: 40px;
+    &:hover {
+        box-shadow: 10px 10px rgb(39, 38, 38 0.3);
+        box-shadow: 10px 10px #0c0c0c;
+        transition: all .5s ease-in-out;
+        transform: scale(1.08);
+    }
+    &__info {
+        background-color: $card-bg;
+    }
+    &__img {
+        width: 100%;
+    }
+    &__token {
+        width: 30%;
+    }
+    &__btn {
+        width: 100%;
+        padding: 10px;
+        background-color: $btn-color;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) {}

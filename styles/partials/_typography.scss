@@ -1,0 +1,53 @@
+/*font-family and size*/
+
+body {
+    font-family: $font-stack;
+    font-size: $body-text-m;
+    color: $text-color;
+}
+
+
+/*headings*/
+
+h1 {
+    font-family: $heading-stack;
+    font-size: $heading-size-m;
+    margin-top: 50px;
+    text-align: center;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-stack;
+    font-size: $sub-heading-m;
+    text-align: center;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    h1 {
+        font-size: $heading-size-t;
+    }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: $sub-heading-t;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    h1 {
+        font-size: $heading-size-d;
+    }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: $sub-heading-d;
+    }
+}

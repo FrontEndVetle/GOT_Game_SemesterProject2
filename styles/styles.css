@@ -1,3 +1,120 @@
 /*font*/
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato&display=swap");
+/*font size*/
+/*colours*/
+/*font-family and size*/
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+  color: #fff;
+}
+
+/*headings*/
+h1 {
+  font-family: "Cinzel Decorative", sans-serif;
+  font-size: 18px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cinzel Decorative", sans-serif;
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  h1 {
+    font-size: 24px;
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 20px;
+  }
+}
+
+.nav-link {
+  font-size: 12px;
+  width: 10%;
+  margin: 0 100px 0px 0px;
+}
+
+.logo {
+  width: 50px;
+}
+
+.nav-link {
+  font-size: 14px;
+}
+
+.logo {
+  width: 100px;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-link {
+    font-size: 18px;
+  }
+  .logo {
+    width: 300px;
+  }
+}
+
+body {
+  background-color: #141E26;
+}
+
+/*cards*/
+.cards {
+  background-color: #343a3f;
+  border: 4px solid #e0e01a;
+  margin-top: 40px;
+}
+
+.cards:hover {
+  -webkit-box-shadow: 10px 10px #0c0c0c;
+          box-shadow: 10px 10px #0c0c0c;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: scale(1.08);
+          transform: scale(1.08);
+}
+
+.cards__info {
+  background-color: #343a3f;
+}
+
+.cards__img {
+  width: 100%;
+}
+
+.cards__token {
+  width: 30%;
+}
+
+.cards__btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #2C4459;
+}
 /*# sourceMappingURL=styles.css.map */
