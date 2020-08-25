@@ -6,7 +6,7 @@ body {
 /*cards*/
 
 .cards {
-    background-color: $card-bg;
+    background-color: $content-bg;
     border: $card-border;
     margin-top: 40px;
     &:hover {
@@ -16,7 +16,7 @@ body {
         transform: scale(1.08);
     }
     &__info {
-        background-color: $card-bg;
+        background-color: $content-bg;
     }
     &__img {
         width: 100%;
