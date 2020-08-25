@@ -6,6 +6,10 @@ body {
     color: $text-color;
 }
 
+a {
+    color: $text-color;
+}
+
 
 /*headings*/
 
@@ -37,6 +41,9 @@ h6 {
     h6 {
         font-size: $sub-heading-t;
     }
+    body {
+        font-size: $body-text-t;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -49,5 +56,8 @@ h6 {
     h5,
     h6 {
         font-size: $sub-heading-d;
+    }
+    body {
+        font-size: $body-text-d;
     }
 }

@@ -10,7 +10,7 @@ body {
     border: $card-border;
     margin-top: 40px;
     &:hover {
-        box-shadow: 10px 10px rgb(39, 38, 38 0.3);
+        box-shadow: 10px 10px rgba(49, 47, 47, 0.3);
         box-shadow: 10px 10px #0c0c0c;
         transition: all .5s ease-in-out;
         transform: scale(1.08);
@@ -29,6 +29,16 @@ body {
         padding: 10px;
         background-color: $btn-color;
     }
+}
+
+//accordion
+.accordion {
+    margin: 40px;
+}
+
+.accor {
+    background-color: $content-bg;
+    margin-top: 2px;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {}
