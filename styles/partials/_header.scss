@@ -6,6 +6,11 @@
     font-family: $heading-stack;
 }
 
+.active {
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
 //logo
 .logo {
     width: 50px;
