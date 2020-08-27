@@ -149,4 +149,8 @@ body {
 .modal-content {
   background-color: #343a3f;
 }
+
+.container-fluid {
+  max-width: 1800px;
+}
 /*# sourceMappingURL=styles.css.map */
