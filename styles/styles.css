@@ -158,12 +158,22 @@ body {
   position: absolute;
   width: 110px;
   height: 110px;
-  border: 3px solid cyan;
+  border: 5px solid;
 }
 
 #board {
   position: absolute;
   top: 80px;
   left: 100px;
+}
+
+.game-token {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+}
+
+.dice-btn {
+  margin-top: 100px;
 }
 /*# sourceMappingURL=styles.css.map */
