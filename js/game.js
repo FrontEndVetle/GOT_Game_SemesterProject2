@@ -1,3 +1,6 @@
+//get DOM elements
+const storyBoard = document.getElementById("story-board-list");
+
 var player = JSON.parse(localStorage.getItem("player"));
 var com = JSON.parse(localStorage.getItem("com"));
 
@@ -49,16 +52,18 @@ window.rollDice = () => {
         currentPlayer.position++;
         if (counter === roll) {
             clearInterval(interval);
-            console.log(
-                currentPlayer.name + " landed on square " + currentPlayer.position
-            );
+            storyBoard.innerHTML += `
+             <li class="story-board__event">${currentPlayer.name} landed on square ${currentPlayer.position}</li>
+            `;
         }
         renderBoard();
     }, 400);
 
     traps.forEach((trap) => {
         if (trap.start === currentPlayer.position) {
-            console.log("you stepped on the trap! boha!");
+            storyBoard.innerHTML += `
+             <li class="story-board__event">${currentPlayer.name} ${trap.description} ${currentPlayer.position}</li>
+            `;
             currentPlayer.position = trap.end;
         }
     });
@@ -114,14 +119,27 @@ const players = [{
 const traps = [{
         start: 2,
         end: 1,
+        description: "hides during Ned Stark's execution and retreats to tile",
     },
     {
         start: 3,
         end: 1,
+        description: "hides during Ned Stark's execution and retreats to tile",
     },
     {
         start: 10,
         end: 1,
+        description: "hides during Ned Stark's execution and retreats to tile",
+    },
+    {
+        start: 20,
+        end: 10,
+        description: "hides during Ned Stark's execution and retreats to tile",
+    },
+    {
+        start: 15,
+        end: 1,
+        description: "hides during Ned Stark's execution and retreats to tile",
     },
 ];
 
