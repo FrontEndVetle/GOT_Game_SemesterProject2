@@ -173,7 +173,23 @@ body {
   position: absolute;
 }
 
+.myStyle {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+
 .dice-btn {
-  margin-top: 100px;
+  margin-top: 10px;
+}
+
+.main-content {
+  margin-top: 50px;
+}
+
+.dice {
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
 }
 /*# sourceMappingURL=styles.css.map */

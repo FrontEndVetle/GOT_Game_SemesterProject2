@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div class="modalsHere"></div>
     <nav class="navbar navbar-expand-md">
         <a class="navbar-brand" href="index.html">
             <img src="images/logo.svg" class="logo" alt="The game logo" />
@@ -90,12 +91,22 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button class="dice-btn" onClick="rollDice()">Roll Dice</button>
+                    <div class="container col-sm-12 col-md-5 main-content">
+                        <div class="block-container">
+                            <button type="button" onclick="rollDice();" class="btn btn-primary">Roll the dice</button>
+                        </div>
+                        <div class="block-container">
+                            <!--<div id="dice"></div>-->
+                            <img id="dice" class="dice" src="https://openclipart.org/download/282127/Die/1.svg">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
