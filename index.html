@@ -59,10 +59,40 @@
                     </div>
                 </div>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" data-toggle="modal" data-target="#changeCharacters">
                         <i class="fa fa-exchange fa-4x"></i> CHANGE CHARACTERS
                     </a>
                 </li>
+                <div class="modal" id="changeCharacters">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">CHANGE CHARACTERS</h4>
+                                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <p>
+                                    Click on the change button below if you want to select new characters
+                                </p>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" onClick="deleteSelection()" data-dismiss="modal">
+                    Change
+                  </button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    Close
+                  </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul>
         </div>
     </nav>
@@ -114,7 +144,36 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="startGameModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">PREPARE YOUR SWORDS</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+                </div>
 
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>
+                        Are you ready to race for the Iron Throne or do you want to change characters?
+                    </p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onClick="deleteSelection()" data-dismiss="modal">
+              CHANGE CHARACTERS
+            </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="toGame()">
+              START GAME
+            </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <h2 class="select-heading">SELECT TWO CHARACTERS</h2>
         <div class="row card-container"></div>

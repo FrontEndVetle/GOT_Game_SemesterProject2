@@ -3,7 +3,7 @@ const storyBoard = document.getElementById("story-board-list");
 const modalBoard = document.querySelector(".modalsHere");
 
 var player = JSON.parse(localStorage.getItem("player"));
-var com = JSON.parse(localStorage.getItem("com"));
+var player2 = JSON.parse(localStorage.getItem("player2"));
 
 function createPlayer() {
     var player = JSON.parse(localStorage.getItem("player"));
@@ -20,21 +20,21 @@ function createPlayer() {
 }
 createPlayer();
 
-function createCom() {
-    var com = JSON.parse(localStorage.getItem("com"));
+function createplayer2() {
+    var player2 = JSON.parse(localStorage.getItem("player2"));
 
-    let comDisplay = document.querySelector(".com");
-    comDisplay.innerHTML += `
+    let player2Display = document.querySelector(".player2");
+    player2Display.innerHTML += `
     <div class="card cards">
-    <img class="card-img-top cards__img" src="${com.banner}" alt="Card image cap">
+    <img class="card-img-top cards__img" src="${player2.banner}" alt="Card image cap">
     <div class="card-body">
-                <h5 class="card-title cards__title">${com.name}</h5>
+                <h5 class="card-title cards__title">${player2.name}</h5>
                   <ul class="list-group list-group-flush">
                   </div>
                         </div>
-                        <img class="game-token" src="${com.token}" alt="player token">`;
+                        <img class="game-token" src="${player2.token}" alt="player token">`;
 }
-createCom();
+createplayer2();
 //player starts
 let currentPlayerTurn = 0;
 
@@ -190,9 +190,9 @@ const players = [{
         token: player.token,
     },
     {
-        name: com.name,
+        name: player2.name,
         position: 0,
-        token: com.token,
+        token: player2.token,
     },
 ];
 
