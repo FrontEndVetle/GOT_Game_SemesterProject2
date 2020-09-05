@@ -1,8 +1,7 @@
 //clear local Storage before user starts selection process.
 window.localStorage.clear();
 var block;
-let selectBtn = "select";
-var selectedIndicator;
+var cDiv;
 
 //fetch the characters APi
 var characters;
@@ -32,9 +31,9 @@ function loopThroughCharacters(characters) {
                 <li class="list-group-item cards__info">Alias: ${characters[i].Aliases[0]}</li>
                  <li class="list-group-item cards__info"><img class="card-img-top cards__token" src="${characters[i].Token}" alt="Card image cap"></li>
             </ul>
-            <div class="card-body">
-                <a class="btn btn-primary cards__btn"> ${selectBtn}</a>
-            </div>
+
+                <a class="btn btn-primary cards__btn cards__btn--modify"> Select</a>
+
             </div>
             </div>`;
     }
@@ -42,14 +41,13 @@ function loopThroughCharacters(characters) {
     const blocks = document.querySelectorAll(".block");
     blocks.forEach(function(block) {
         block.addEventListener("click", function() {
-            selectedIndicator = this;
-            if (selectedIndicator.style.color === "red") {
-                selectedIndicator.style.color === "#fff";
-            } else {
-                selectedIndicator.style.color = "red";
-            }
+            cDiv = this.children;
 
-            console.log(block);
+            /*  if ((cDiv[3].style.color = "red")) {
+                                                            cDiv[3].innerText = "SELECT";
+                                                        } else {
+                                                            cDiv[3].innerText = "UNSELECT";
+                                                        }*/
         });
     });
 }
@@ -62,15 +60,15 @@ function selectCharacter(index) {
         banner: selectedChar[index].Banner,
         token: selectedChar[index].Token,
     };
-
-    if (selectBtn === "SELECT") {
-        selectBtn = "Unselect";
-    } else {
-        selectBtn = "SELECT";
-    }
+    /*if (selectBtn === "SELECT") {
+                                                                                                                                                                                                  selectBtn = "Unselect";
+                                                                                                                                                                                              } else {
+                                                                                                                                                                                                  selectBtn = "SELECT";
+                                                                                                                                                                                              }*/
     //parse JSON of characters in local storage
     var player = JSON.parse(localStorage.getItem("player"));
     var player2 = JSON.parse(localStorage.getItem("player2"));
+    console.log(cDiv);
 
     //check if user select character for player or computer
     if (localStorage.getItem("player") === null) {
@@ -101,6 +99,4 @@ function toGame() {
 //change characters
 function deleteSelection() {
     window.localStorage.clear();
-
-    selectedIndicator.style.color = "#fff";
 }

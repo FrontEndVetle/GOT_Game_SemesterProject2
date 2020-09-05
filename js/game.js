@@ -1,6 +1,14 @@
 //get DOM elements
 const storyBoard = document.getElementById("story-board-list");
 const modalBoard = document.querySelector(".modalsHere");
+let playerTurn = document.getElementById("playerTurn");
+
+//player starts
+let currentPlayerTurn = 0;
+//display next player variable
+let nextPlayer;
+let person;
+let roll;
 
 var player = JSON.parse(localStorage.getItem("player"));
 var player2 = JSON.parse(localStorage.getItem("player2"));
@@ -17,6 +25,10 @@ function createPlayer() {
                   </div>
                         </div>
                         <img class="game-token" src="${player.token}" alt="player token">`;
+    playerTurn.innerHTML = "";
+    playerTurn.innerHTML += `
+             <li class="story-board__event">Next player is ${player.name}</li>
+            `;
 }
 createPlayer();
 
@@ -35,16 +47,42 @@ function createplayer2() {
                         <img class="game-token" src="${player2.token}" alt="player token">`;
 }
 createplayer2();
-//player starts
-let currentPlayerTurn = 0;
+
+//display whos turn it is to throw dice
+
+function showTurn() {
+    person = 0;
+
+    if (roll === 6 && person === 0) {
+        person === 0;
+    } else if (roll === 6 && person === 1) {
+        person = 1;
+    } else if (currentPlayerTurn === 0) {
+        person = 1;
+    } else {
+        person = 0;
+    }
+    console.log(roll);
+
+    playerTurn.innerHTML = "";
+    playerTurn.innerHTML += `
+             <li class="story-board__event">Next player is ${nextPlayer[person].name}</li>
+            `;
+}
 
 //dice roll and and token movement
 window.rollDice = () => {
     const max = 6;
-    const roll = Math.ceil(Math.random() * max);
+    roll = Math.ceil(Math.random() * max);
     currentPlayer = players[currentPlayerTurn];
-    currentRoll = diceEyes[roll];
+    nextPlayer = players;
 
+    currentRoll = diceEyes[roll];
+    showTurn();
+
+    storyBoard.innerHTML += `
+             <li class="story-board__event">Next player is ${nextPlayer[person].name} rolled a ${roll}</li>
+            `;
     //change dice image depending on roll
     function updateDie() {
         var dice = document.querySelector("#dice");
@@ -60,9 +98,6 @@ window.rollDice = () => {
         currentPlayer.position++;
         if (counter === roll) {
             clearInterval(interval);
-            storyBoard.innerHTML += `
-             <li class="story-board__event">${currentPlayer.name} rolled a ${roll} and landed on square ${currentPlayer.position}</li>
-            `;
         }
         renderBoard();
     }, 400);

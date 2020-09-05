@@ -1,5 +1,30 @@
+//game background
+body {
+    background: url(../images/map.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+    border-radius: 5%;
+}
+
 .container-fluid {
-    width: 1600px;
+    width: 1800px;
+}
+
+//storyboard
+.story-board {
+    width: 350px;
+    border: $event-border;
+    height: 700px;
+    margin-top: 50px;
+    overflow: auto;
+    &__event {
+        border: $event-border;
+        width: 100%;
+        margin-top: 30px;
+        background: $event-bg;
+        padding: 20px;
+    }
 }
 
 //gameboard
@@ -29,17 +54,21 @@
     position: absolute;
 }
 
-//Dice
-.dice-btn {
-    margin-top: 10px;
+//whos turn to throw
+.player-turn {
+    margin: 80px 5px 0px;
 }
 
-.main-content {
-    margin-top: 50px;
-}
-
-.dice {
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
+//roller-container
+.roller-container {
+    margin-top: 40px;
+    &__dice {
+        width: 100px;
+        margin-left: 70px;
+    }
+    &__btn {
+        width: 150px;
+        height: 100px;
+        padding: 20px;
+    }
 }
