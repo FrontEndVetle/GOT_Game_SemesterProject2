@@ -7,10 +7,6 @@ body {
     border-radius: 5%;
 }
 
-.container-fluid {
-    width: 1800px;
-}
-
 //storyboard
 .story-board {
     width: 350px;
@@ -19,7 +15,6 @@ body {
     margin-top: 50px;
     overflow: auto;
     &__event {
-        border: $event-border;
         width: 100%;
         margin-top: 30px;
         background: $event-bg;
@@ -28,6 +23,13 @@ body {
 }
 
 //gameboard
+.game-area {
+    border: 2px solid yellow;
+    padding: 40px;
+    background: black;
+    width: 1800px;
+}
+
 .square {
     position: absolute;
     width: 110px;

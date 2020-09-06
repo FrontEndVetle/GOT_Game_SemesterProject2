@@ -27,7 +27,7 @@ function createPlayer() {
                         <img class="game-token" src="${player.token}" alt="player token">`;
     playerTurn.innerHTML = "";
     playerTurn.innerHTML += `
-             <li class="story-board__event">Next player is ${player.name}</li>
+             <li class="story-board__event">NEXT PLAYER IS ${player.name}</li>
             `;
 }
 createPlayer();
@@ -66,7 +66,7 @@ function showTurn() {
 
     playerTurn.innerHTML = "";
     playerTurn.innerHTML += `
-             <li class="story-board__event">Next player is ${nextPlayer[person].name}</li>
+             <li class="story-board__event">NEXT PLAYER IS ${nextPlayer[person].name}</li>
             `;
 }
 
@@ -81,7 +81,7 @@ window.rollDice = () => {
     showTurn();
 
     storyBoard.innerHTML += `
-             <li class="story-board__event">Next player is ${nextPlayer[person].name} rolled a ${roll}</li>
+             <li class="story-board__event">${nextPlayer[person].name} ROLLED A ${roll}</li>
             `;
     //change dice image depending on roll
     function updateDie() {
@@ -149,7 +149,7 @@ window.rollDice = () => {
       </div>
 
       <div class="modal-body">
-        ${currentPlayer.name} rolled a six and can roll again
+        ${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN
       </div>
 
       <div class="modal-footer">
@@ -235,7 +235,7 @@ const players = [{
 const traps = [{
         start: 2,
         end: 1,
-        description: "hides during Ned Stark's execution and retreats to tile",
+        description: "HIDES DURING NED STARK'S EXECUTION AND RETREATS TO TILE",
     },
     {
         start: 3,

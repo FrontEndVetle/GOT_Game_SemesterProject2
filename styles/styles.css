@@ -40,10 +40,10 @@ h6 {
   h4,
   h5,
   h6 {
-    font-size: 16px;
+    font-size: 18px;
   }
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -56,10 +56,10 @@ h6 {
   h4,
   h5,
   h6 {
-    font-size: 20px;
+    font-size: 30px;
   }
   body {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -90,7 +90,7 @@ h6 {
 
 @media only screen and (min-width: 768px) {
   .nav-link {
-    font-size: 18px;
+    font-size: 23px;
   }
   .logo {
     width: 300px;
@@ -158,10 +158,6 @@ body {
   border-radius: 5%;
 }
 
-.container-fluid {
-  width: 1800px;
-}
-
 .story-board {
   width: 350px;
   border: 3px solid #fff;
@@ -171,11 +167,17 @@ body {
 }
 
 .story-board__event {
-  border: 3px solid #fff;
   width: 100%;
   margin-top: 30px;
   background: #050505;
   padding: 20px;
+}
+
+.game-area {
+  border: 2px solid yellow;
+  padding: 40px;
+  background: black;
+  width: 1800px;
 }
 
 .square {

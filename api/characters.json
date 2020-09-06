@@ -1,6 +1,6 @@
 [{
         "Id": 1,
-        "Name": "Cersei Lannister",
+        "Name": "CERSEI LANNISTER",
         "IsFemale": true,
         "Culture": "Westerman",
         "Titles": [
@@ -34,7 +34,7 @@
     },
     {
         "Id": 2,
-        "Name": "Daenerys Targaryen",
+        "Name": "DAENERYS TARGARYEN",
         "IsFemale": true,
         "Culture": "Valyrian",
         "Titles": [
@@ -80,7 +80,7 @@
     },
     {
         "Id": 3,
-        "Name": "Stannis Baratheon",
+        "Name": "STANNIS BARATHEON",
         "IsFemale": false,
         "Culture": "",
         "Titles": [
@@ -113,7 +113,7 @@
     },
     {
         "Id": 4,
-        "Name": "Tyrion Lannister",
+        "Name": "TYRION LANNISTER",
         "IsFemale": false,
         "Culture": "",
         "Titles": ["Acting Hand of the King (former)", "Master of Coin (former)"],
@@ -153,7 +153,7 @@
     },
     {
         "Id": 5,
-        "Name": "Jaime Lannister",
+        "Name": "JAIME LANNISTER",
         "IsFemale": false,
         "Culture": "Westerlands",
         "Titles": [
@@ -184,7 +184,7 @@
 
     {
         "Id": 6,
-        "Name": "Arya Stark",
+        "Name": "ARYA STARK",
         "IsFemale": true,
         "Culture": "Northmen",
         "Titles": ["Princess"],
@@ -229,7 +229,7 @@
     },
     {
         "Id": 7,
-        "Name": "Jon Snow",
+        "Name": "JON SNOW",
         "IsFemale": false,
         "Culture": "Northmen",
         "Titles": ["Lord Commander of the Night's Watch"],
@@ -266,7 +266,7 @@
     },
     {
         "Id": 8,
-        "Name": "Theon Greyjoy",
+        "Name": "THEON GREYJOY",
         "IsFemale": false,
         "Culture": "Ironborn",
         "Titles": [
@@ -303,7 +303,7 @@
     },
     {
         "Id": 9,
-        "Name": "Sansa Stark",
+        "Name": "SANSA STARK",
         "IsFemale": true,
         "Culture": "Northmen",
         "Titles": ["Princess"],
@@ -331,7 +331,7 @@
     },
     {
         "Id": 10,
-        "Name": "Euron Greyjoy",
+        "Name": "EURON GREYJOY",
         "IsFemale": false,
         "Culture": "Ironborn",
         "Titles": [
