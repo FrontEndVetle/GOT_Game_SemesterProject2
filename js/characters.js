@@ -48,46 +48,31 @@ function loopThroughCharacters(characters) {
                 banner: card.children[0].src,
                 token: card.children[2].children[3].children[0].src,
             };
-            /*  var selectedChar = characters;
-                                                                                                                                                                                                                                                                                                      var char = {
-                                                                                                                                                                                                                                                                                                          name: selectedChar.Name,
-                                                                                                                                                                                                                                                                                                          banner: selectedChar.Banner,
-                                                                                                                                                                                                                                                                                                          token: selectedChar.Token,
-                                                                                                                                                                                                                                                                                                      };
-                                                                                                                                                                                                                                                                                                      console.log(selectedChar);
-                                                                                                                                                                                                                                                                                                      if (selectBtn === "SELECT") {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            selectBtn = "Unselect";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } else {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            selectBtn = "SELECT";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }*/
+
             //parse JSON of characters in local storage
             var player = JSON.parse(localStorage.getItem("player"));
             var player2 = JSON.parse(localStorage.getItem("player2"));
 
-            /*  const blocks = document.querySelectorAll(".block");
-                                                                                                                                                                                                                                                                                                                                          blocks.forEach(function(block) {
-                                                                                                                                                                                                                                                                                                                                              block.addEventListener("click", function() {
-                                                                                                                                                                                                                                                                                                                                                  card = this.children;
-                                                                                                                                                                                                                                                                                                                                                  console.log(this.card[3].innerText);
-                                                                                                                                                                                                                                                                                                                                              });
-                                                                                                                                                                                                                                                                                                                                          });*/
-
             //check if user select character for player or computer
             if (localStorage.getItem("player") === null) {
                 localStorage.setItem("player", JSON.stringify(char));
-                card.children[3].innerText = "UNSELECT";
+                card.children[3].innerText = "DESELECT";
+                card.classList.add("selected-style");
             } else if (player.name === char.name) {
                 localStorage.removeItem("player");
+                card.classList.remove("selected-style");
                 card.children[3].innerText = "SELECT";
             } else if (
                 localStorage.getItem("player") !== null &&
                 localStorage.getItem("player2") === null
             ) {
                 localStorage.setItem("player2", JSON.stringify(char));
-                card.children[3].innerText = "UNSELECT";
+                card.children[3].innerText = "DESELECT";
+                card.classList.add("selected-style");
             } else if (player2.name === char.name) {
                 localStorage.removeItem("player2");
                 card.children[3].innerText = "SELECT";
+                card.classList.remove("selected-style");
             }
             if (
                 localStorage.getItem("player") !== null &&
@@ -104,7 +89,11 @@ function toGame() {
     window.location.replace("game.html");
 }
 
-//change characters
+//delete local storage and reset style if click change characters
 function deleteSelection() {
     window.localStorage.clear();
+    document.querySelectorAll(".cards").forEach((card) => {
+        card.classList.remove("selected-style");
+        card.children[3].innerText = "SELECT";
+    });
 }
