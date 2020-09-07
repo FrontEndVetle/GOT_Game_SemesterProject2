@@ -1,0 +1,11 @@
+.wrapper {
+    position: relative;
+    top: 500px;
+}
+
+.overlay {
+    position: absolute;
+    color: white;
+    pointer-events: none;
+    border: 2px solid red;
+}

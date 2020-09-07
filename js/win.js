@@ -1,4 +1,4 @@
-let canvas = document.querySelector("canvas");
+let canvas = document.getElementById("canvas");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -8,25 +8,36 @@ let c = canvas.getContext("2d");
 var imgpath = "../images/jon.svg";
 var imgObj = new Image();
 imgObj.src = imgpath;
-
-let imgW = imgObj.width / 1;
-let imgH = imgObj.height / 1;
-
 let tokenArray = [];
 
-//randomize token travelpattern and speed
-for (var i = 0; i < 20; i++) {
+//creating a mouse object
+var mouse = {
+    x: undefined,
+    y: undefined,
+};
+
+let maxSizeToken = 200;
+let minSizeToken = 100;
+
+window.addEventListener("mousemove", function(event) {
+    mouse.x = event.x;
+    mouse.y = event.y;
+});
+
+//randomize token travelpattern, speed and size.
+for (var i = 0; i < 30; i++) {
+    let randomSize = Math.ceil(Math.random() * 0.5 + 1);
+    let imgW = imgObj.width / randomSize;
+    let imgH = imgObj.height / randomSize;
     let x = Math.random() * window.innerWidth;
-    let dx = (Math.random() - 0.5) * 30;
+    let dx = (Math.random() - 0.5) * 20;
     let y = Math.random() * window.innerHeight;
-    let dy = (Math.random() - 0.5) * 30;
-    tokenArray.push(new Token(imgObj, x, y, dx, dy));
+    let dy = (Math.random() - 0.5) * 20;
+    tokenArray.push(new Token(imgObj, x, y, dx, dy, imgW, imgH));
 }
 
-console.log(tokenArray);
-
 //assign individual variables to each token
-function Token(img, x, y, dx, dy) {
+function Token(img, x, y, dx, dy, imgW, imgH) {
     this.img = img;
     this.x = x;
     this.y = y;
@@ -35,7 +46,6 @@ function Token(img, x, y, dx, dy) {
     this.imgH = imgH;
     this.imgW = imgW;
     this.drawImage = function() {
-        console.log(img, x, y);
         c.drawImage(this.img, this.x, this.y, this.imgW, this.imgH);
     };
     //check if tokens are hitting the walls and if so bounce back;
@@ -48,6 +58,23 @@ function Token(img, x, y, dx, dy) {
         }
         this.x += this.dx;
         this.y += this.dy;
+
+        //check if mouse is hovering a token
+        if (
+            mouse.x - this.x < 150 &&
+            mouse.x - this.x > -150 &&
+            mouse.y - this.y < 150 &&
+            mouse.y - this.y > -150
+        ) {
+            if (this.imgW < 200 && this.imgH < maxSizeToken) {
+                this.imgW += 5;
+                this.imgH += 5;
+            }
+        } else if (this.imgW > minSizeToken && this.imgH > minSizeToken) {
+            this.imgW -= 1;
+            this.imgH -= 1;
+        }
+
         this.drawImage();
     };
 }
@@ -63,13 +90,10 @@ function animate() {
     }
 }
 
-animate();
+//run function if browser window is resized so tokens move to new area.
+window.addEventListener("resize", function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 
-/*imgObj.onload = function () {
-    for (let i = 0; i < 10; i++) {
-        let x = Math.random() * window.innerWidth;
-        let y = Math.random() * window.innerWidth;
-        c.drawImage(imgObj, x, y, imgObj.width / 1, imgObj.height / 1);
-        console.log(imgObj);
-    }
-};*/
+animate();

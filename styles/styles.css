@@ -227,4 +227,19 @@ body {
 canvas {
   width: 100%;
 }
+
+.wrapper {
+  position: relative;
+  left: 100px;
+  top: 500px;
+}
+
+.overlay {
+  width: 100%;
+  margin-left: 500px;
+  position: absolute;
+  color: white;
+  pointer-events: none;
+  border: 2px solid red;
+}
 /*# sourceMappingURL=styles.css.map */
