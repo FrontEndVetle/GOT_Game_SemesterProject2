@@ -1,0 +1,25 @@
+//buttons
+.btn {
+    font-size: $btn-text-m;
+}
+
+.modal-content {
+    background-color: $content-bg;
+}
+
+//modals
+.modal {
+    top: 40%;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .btn {
+        font-size: $btn-text-t;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .btn {
+        font-size: $btn-text-d;
+    }
+}

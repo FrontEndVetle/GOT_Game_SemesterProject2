@@ -1,11 +1,19 @@
+//get canvas and display in full screen of display
 let canvas = document.getElementById("canvas");
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 let c = canvas.getContext("2d");
 
-var imgpath = "../images/jon.svg";
+//retrieve winner name and token from localStorage
+let winner = JSON.parse(localStorage.getItem("winner"));
+
+//get DOM element insert name
+let nameHolder = document.getElementById("nameHolder");
+console.log(nameHolder);
+nameHolder.innerHTML += `<h1>${winner.name} WON</h1>
+`;
+
+var imgpath = winner.token;
 var imgObj = new Image();
 imgObj.src = imgpath;
 let tokenArray = [];

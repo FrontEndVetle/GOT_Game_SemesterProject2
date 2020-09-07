@@ -146,10 +146,6 @@ body {
   margin-top: 2px;
 }
 
-.modal-content {
-  background-color: #343a3f;
-}
-
 body {
   background: url(../images/map.png);
   background-repeat: no-repeat;
@@ -228,18 +224,41 @@ canvas {
   width: 100%;
 }
 
-.wrapper {
+.container-winner {
   position: relative;
-  left: 100px;
-  top: 500px;
+  top: 50%;
 }
 
 .overlay {
-  width: 100%;
-  margin-left: 500px;
   position: absolute;
-  color: white;
-  pointer-events: none;
-  border: 2px solid red;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: rgba(12, 12, 12, 0.8);
+  padding: 40px 250px;
+}
+
+.btn {
+  font-size: 13px;
+}
+
+.modal-content {
+  background-color: #343a3f;
+}
+
+.modal {
+  top: 40%;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .btn {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .btn {
+    font-size: 20px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

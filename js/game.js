@@ -27,7 +27,7 @@ function createPlayer() {
                         <img class="game-token" src="${player.token}" alt="player token">`;
     playerTurn.innerHTML = "";
     playerTurn.innerHTML += `
-             <li class="story-board__event">NEXT PLAYER IS ${player.name}</li>
+             <li class="story-board__event">NEXT PLAYER IS ${player.name} <div class="spinner-grow text-muted"></div></li>
             `;
 }
 createPlayer();
@@ -66,7 +66,7 @@ function showTurn() {
 
     playerTurn.innerHTML = "";
     playerTurn.innerHTML += `
-             <li class="story-board__event">NEXT PLAYER IS ${nextPlayer[person].name}</li>
+             <li class="story-board__event">NEXT PLAYER IS ${nextPlayer[person].name} <div class="spinner-grow text-muted"></div></li>
             `;
 }
 
@@ -81,7 +81,7 @@ window.rollDice = () => {
     showTurn();
 
     storyBoard.innerHTML += `
-             <li class="story-board__event">${nextPlayer[person].name} ROLLED A ${roll}</li>
+             <li class="story-board__event">${nextPlayer[person].name} ROLLED ${roll}</li>
             `;
     //change dice image depending on roll
     function updateDie() {
@@ -99,8 +99,21 @@ window.rollDice = () => {
         if (counter === roll) {
             clearInterval(interval);
         }
+        if (currentPlayer.position > 5) {
+            loadWinner();
+        }
         renderBoard();
     }, 400);
+
+    function loadWinner() {
+        // window.localStorage.clear();
+        var winner = {
+            name: currentPlayer.name,
+            token: currentPlayer.token,
+        };
+        localStorage.setItem("winner", JSON.stringify(winner));
+        window.location.replace("win.html");
+    }
 
     traps.forEach((trap) => {
         if (trap.start === currentPlayer.position) {
