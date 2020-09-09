@@ -20,11 +20,11 @@ function createPlayer() {
     <div class="card cards">
     <img class="card-img-top cards__img" src="${player.banner}" alt="Card image cap">
     <div class="card-body">
-                <h5 class="card-title cards__title">${player.name}</h5>
+                <h4 class="card-title cards__title">${player.name}</h4>
                   <ul class="list-group list-group-flush">
                   </div>
                         </div>
-                        <img class="game-token" src="${player.token}" alt="player token">`;
+                        <img class="game-token game-token__fighters" src="${player.token}" alt="player token">`;
     playerTurn.innerHTML = "";
     playerTurn.innerHTML += `
              <li class="story-board__event">NEXT PLAYER IS ${player.name} <div class="spinner-grow text-muted"></div></li>
@@ -40,13 +40,20 @@ function createplayer2() {
     <div class="card cards">
     <img class="card-img-top cards__img" src="${player2.banner}" alt="Card image cap">
     <div class="card-body">
-                <h5 class="card-title cards__title">${player2.name}</h5>
+                <h3 class="card-title cards__title">${player2.name}</h3>
                   <ul class="list-group list-group-flush">
                   </div>
                         </div>
-                        <img class="game-token" src="${player2.token}" alt="player token">`;
+                        <img class="game-token game-token__fighters" src="${player2.token}" alt="player token">`;
 }
 createplayer2();
+
+//spin button to animate the roll
+$(".rotate").click(function() {
+    setTimeout(() => {
+        $(this).toggleClass("down");
+    }, 0);
+});
 
 //display whos turn it is to throw dice
 
@@ -64,10 +71,17 @@ function showTurn() {
     }
     console.log(roll);
 
-    playerTurn.innerHTML = "";
-    playerTurn.innerHTML += `
+    if (roll === 6) {
+        playerTurn.innerHTML = "";
+        playerTurn.innerHTML += `
+             <li class="story-board__event">${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN! <div class="spinner-grow text-muted"></div></li>
+            `;
+    } else {
+        playerTurn.innerHTML = "";
+        playerTurn.innerHTML += `
              <li class="story-board__event">NEXT PLAYER IS ${nextPlayer[person].name} <div class="spinner-grow text-muted"></div></li>
             `;
+    }
 }
 
 //dice roll and and token movement
@@ -80,14 +94,24 @@ window.rollDice = () => {
     currentRoll = diceEyes[roll];
     showTurn();
 
-    storyBoard.innerHTML += `
-             <li class="story-board__event">${nextPlayer[person].name} ROLLED ${roll}</li>
-            `;
+    const liEvent = document.createElement("li");
+    const rolledEvent = document.createTextNode(
+        currentPlayer.name + " ROLLED " + roll
+    );
+    storyBoard.prepend(liEvent);
+    liEvent.append(rolledEvent);
+    liEvent.classList.add("story-board__event");
+
     //change dice image depending on roll
+
     function updateDie() {
         var dice = document.querySelector("#dice");
-        dice.setAttribute("src", currentRoll.path);
+        setTimeout(() => {
+            $(this).toggleClass("down");
+            dice.setAttribute("src", currentRoll.path);
+        }, 400);
     }
+
     updateDie();
 
     //add dice value to current position of player and animate movement
@@ -99,7 +123,7 @@ window.rollDice = () => {
         if (counter === roll) {
             clearInterval(interval);
         }
-        if (currentPlayer.position > 5) {
+        if (currentPlayer.position > 30) {
             loadWinner();
         }
         renderBoard();
@@ -115,6 +139,7 @@ window.rollDice = () => {
         window.location.replace("win.html");
     }
 
+    //check if player landed on trap and display trap modal
     traps.forEach((trap) => {
         if (trap.start === currentPlayer.position) {
             modalBoard.innerHTML += `
@@ -132,7 +157,7 @@ window.rollDice = () => {
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -140,40 +165,20 @@ window.rollDice = () => {
                     `;
             $("#trapModal").modal("show");
 
-            storyBoard.innerHTML += `
-             <li class="story-board__event">${currentPlayer.name} ${trap.description} ${currentPlayer.position}</li>
-            `;
-            currentPlayer.position = trap.end;
+            //show trap event in storyboard
+            const liEvent = document.createElement("li");
+            const trapEvent = document.createTextNode(
+                currentPlayer.name + trap.description + currentPlayer.position
+            );
+            storyBoard.prepend(liEvent);
+            liEvent.append(trapEvent);
+            liEvent.classList.add("story-board__event");
         }
     });
     //determine whos turn it is
 
     if (roll < 6) {
         currentPlayerTurn++;
-    } else {
-        modalBoard.innerHTML += `
-        <div class="modal" id="rolledSixModal">
-           <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h4 class="modal-title">ROLLED 6</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <div class="modal-body">
-        ${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-                    </div>
-                    `;
-        $("#rolledSixModal").modal("show");
     }
 
     if (currentPlayerTurn >= players.length) {
@@ -209,25 +214,25 @@ for (var y = height; y >= 0; y--) {
 
 //dice images
 const diceEyes = [{
-        path: "https://openclipart.org/download/282127/Die",
+        path: "",
     },
     {
-        path: "https://openclipart.org/download/282127/Die",
+        path: "images/dice1.png",
     },
     {
-        path: "https://openclipart.org/download/282128/Die",
+        path: "images/dice2.png",
     },
     {
-        path: "https://openclipart.org/download/282127/Die",
+        path: "images/dice3.png",
     },
     {
-        path: "https://openclipart.org/download/282129/Die",
+        path: "images/dice4.png",
     },
     {
-        path: "https://openclipart.org/download/282130/Die",
+        path: "images/dice5.png",
     },
     {
-        path: "https://openclipart.org/download/282132/Die",
+        path: "images/dice6.png",
     },
 ];
 

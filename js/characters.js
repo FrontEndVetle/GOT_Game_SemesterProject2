@@ -1,6 +1,5 @@
 //clear local Storage before user starts selection process.
 window.localStorage.clear();
-let block;
 
 //fetch the characters APi
 var characters;
@@ -19,19 +18,19 @@ fetch("api/characters.json")
 function loopThroughCharacters(characters) {
     var characterDisplay = document.querySelector(".card-container");
     for (var i = 0; i < characters.length; i++) {
-        characterDisplay.innerHTML += `<div class="col-xs-12 col-md-3"><div class="card cards">
+        characterDisplay.innerHTML += `<div class="col-xs-12 col-md-3"><div class="card cards cards-modify">
             <img class="card-img-top cards__img" src="${characters[i].Banner}" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title cards__title">${characters[i].Name}</h5>
+                <h4 class="card-title cards__title">${characters[i].Name}</h4>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item cards__info">Born: ${characters[i].Born}</li>
-                <li class="list-group-item cards__info">Culture: ${characters[i].Culture} </li>
-                <li class="list-group-item cards__info">Alias: ${characters[i].Aliases[0]}</li>
+                <li class="list-group-item cards__info"><p>Born: ${characters[i].Born}</p></li>
+                <li class="list-group-item cards__info"><p>Culture: ${characters[i].Culture} </p></li>
+                <li class="list-group-item cards__info"><p>Alias: ${characters[i].Aliases[0]}</p></li>
                  <li class="list-group-item cards__info"><img class="card-img-top cards__token" src="${characters[i].Token}" alt="Card image cap"></li>
             </ul>
 
-                <a class="btn btn-primary cards__btn cards__btn--modify"> SELECT</a>
+                <a class="btn"> SELECT</a>
 
             </div>
             </div>`;
@@ -53,7 +52,7 @@ function loopThroughCharacters(characters) {
             var player = JSON.parse(localStorage.getItem("player"));
             var player2 = JSON.parse(localStorage.getItem("player2"));
 
-            //check if user select character for player or computer
+            //check if user select character for player or player 2
             if (localStorage.getItem("player") === null) {
                 localStorage.setItem("player", JSON.stringify(char));
                 card.children[3].innerText = "DESELECT";
@@ -74,6 +73,7 @@ function loopThroughCharacters(characters) {
                 card.children[3].innerText = "SELECT";
                 card.classList.remove("selected-style");
             }
+
             if (
                 localStorage.getItem("player") !== null &&
                 localStorage.getItem("player2") !== null

@@ -14,6 +14,7 @@ body {
         box-shadow: 10px 10px #0c0c0c;
         transition: all 0.5s ease-in-out;
         transform: scale(1.08);
+        cursor: pointer;
     }
     &__info {
         background-color: $content-bg;
@@ -23,11 +24,6 @@ body {
     }
     &__token {
         width: 30%;
-    }
-    &__btn {
-        width: 100%;
-        padding: 10px;
-        background-color: $btn-color;
     }
 }
 
@@ -48,4 +44,8 @@ body {
 
 @media (min-width: 481px) and (max-width: 767px) {}
 
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+    .cards-modify {
+        height: 880px;
+    }
+}

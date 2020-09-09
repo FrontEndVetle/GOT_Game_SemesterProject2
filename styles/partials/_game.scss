@@ -14,6 +14,7 @@ body {
     height: 700px;
     margin-top: 50px;
     overflow: auto;
+    display: none;
     &__event {
         width: 100%;
         margin-top: 30px;
@@ -27,7 +28,6 @@ body {
     border: 2px solid yellow;
     padding: 40px;
     background: black;
-    width: 1800px;
 }
 
 .square {
@@ -37,17 +37,15 @@ body {
     border: 5px solid;
 }
 
-#board {
-    position: absolute;
-    top: 80px;
-    left: 100px;
-}
-
 //tokens on gameboard
 .game-token {
     width: 80px;
     height: 80px;
     position: absolute;
+    &__fighters {
+        margin-top: 15px;
+        left: 30%;
+    }
 }
 
 .myStyle {
@@ -63,14 +61,39 @@ body {
 
 //roller-container
 .roller-container {
-    margin-top: 40px;
+    margin-top: 20px;
     &__dice {
         width: 100px;
         margin-left: 70px;
-    }
-    &__btn {
-        width: 150px;
         height: 100px;
-        padding: 20px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) {
+    .game-area {
+        border: 2px solid yellow;
+        padding: 40px;
+        background: black;
+        width: 1900px;
+    }
+    .board {
+        position: absolute;
+        top: 80px;
+        left: 100px;
+    }
+    .story-board {
+        display: block;
+    }
+    .rotate {
+        -moz-transition: all 0.5s linear;
+        -webkit-transition: all 0.5s linear;
+        transition: all 0.5s linear;
+    }
+    .rotate.down {
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }

@@ -1,6 +1,28 @@
 //buttons
+.navbar-toggler-icon {
+    background-image: url("https://mdbootstrap.com/img/svg/hamburger7.svg?color=fff");
+}
+
 .btn {
     font-size: $btn-text-m;
+}
+
+.btn {
+    background-color: $btn-color;
+    border: $btn-color;
+    padding: 20px;
+    width: 100%;
+    font-size: $btn-text-m;
+    color: $text-color;
+    &__roll {
+        width: 180px;
+        height: 100px;
+        padding: 20px;
+    }
+    &:hover {
+        background-color: $btn-hover;
+        color: $text-color;
+    }
 }
 
 .modal-content {
