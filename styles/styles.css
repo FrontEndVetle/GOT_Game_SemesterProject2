@@ -140,6 +140,17 @@ body {
   width: 30%;
 }
 
+.cards__game:hover {
+  pointer-events: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transform: none;
+          transform: none;
+}
+
 .selected-style {
   border: 7px solid red;
   opacity: 0.8;
@@ -158,14 +169,6 @@ body {
   .cards-modify {
     height: 880px;
   }
-}
-
-body {
-  background: url(../images/map.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 50px;
-  border-radius: 5%;
 }
 
 .story-board {
@@ -195,6 +198,11 @@ body {
   width: 110px;
   height: 110px;
   border: 5px solid;
+  background-color: blue;
+}
+
+.square__trap {
+  background-color: red;
 }
 
 .game-token {
@@ -206,6 +214,22 @@ body {
 .game-token__fighters {
   margin-top: 15px;
   left: 30%;
+}
+
+.game-token__player1 {
+  margin-top: 10px;
+  width: 50px;
+  height: 120px;
+}
+
+.game-token__player2 {
+  height: 50px;
+  width: 130px;
+  clear: both;
+}
+
+.player1 {
+  width: 500px;
 }
 
 .myStyle {
@@ -269,6 +293,14 @@ canvas {
           transform: translate(-50%, -50%);
   background: rgba(12, 12, 12, 0.8);
   padding: 40px 250px;
+}
+
+body {
+  background: url(../images/map.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  border-radius: 5%;
 }
 
 .navbar-toggler-icon {

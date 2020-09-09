@@ -39,9 +39,6 @@ function loopThroughCharacters(characters) {
     //determine character selection
     document.querySelectorAll(".cards").forEach((card) => {
         card.addEventListener("click", function() {
-            console.log(card.children[0].src);
-            console.log(card.children[1].children[0].innerText);
-            console.log(card.children[2].children[3].children[0].src);
             var char = {
                 name: card.children[1].children[0].innerText,
                 banner: card.children[0].src,

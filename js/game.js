@@ -2,12 +2,12 @@
 const storyBoard = document.getElementById("story-board-list");
 const modalBoard = document.querySelector(".modalsHere");
 let playerTurn = document.getElementById("playerTurn");
+let boardHTML;
 
 //player starts
 let currentPlayerTurn = 0;
 //display next player variable
-let nextPlayer;
-let person;
+let nextPlayer = 0;
 let roll;
 
 var player = JSON.parse(localStorage.getItem("player"));
@@ -17,8 +17,8 @@ function createPlayer() {
     var player = JSON.parse(localStorage.getItem("player"));
     let playerDisplay = document.querySelector(".player");
     playerDisplay.innerHTML += `
-    <div class="card cards">
-    <img class="card-img-top cards__img" src="${player.banner}" alt="Card image cap">
+    <div class="card cards cards__game">
+    <img class="card-img-top cards__img cards__img--game" src="${player.banner}" alt="Card image cap">
     <div class="card-body">
                 <h4 class="card-title cards__title">${player.name}</h4>
                   <ul class="list-group list-group-flush">
@@ -37,7 +37,7 @@ function createplayer2() {
 
     let player2Display = document.querySelector(".player2");
     player2Display.innerHTML += `
-    <div class="card cards">
+    <div class="card cards cards__game">
     <img class="card-img-top cards__img" src="${player2.banner}" alt="Card image cap">
     <div class="card-body">
                 <h3 class="card-title cards__title">${player2.name}</h3>
@@ -48,49 +48,20 @@ function createplayer2() {
 }
 createplayer2();
 
-//spin button to animate the roll
+//spin button to animate the roll and make unclickable for 2 secounds
 $(".rotate").click(function() {
-    setTimeout(() => {
-        $(this).toggleClass("down");
-    }, 0);
+    $(this).toggleClass("down");
+    document.getElementById("rollBtn").disabled = true;
+    setTimeout(function() {
+        document.getElementById("rollBtn").disabled = false;
+    }, 2000);
 });
-
-//display whos turn it is to throw dice
-
-function showTurn() {
-    person = 0;
-
-    if (roll === 6 && person === 0) {
-        person === 0;
-    } else if (roll === 6 && person === 1) {
-        person = 1;
-    } else if (currentPlayerTurn === 0) {
-        person = 1;
-    } else {
-        person = 0;
-    }
-    console.log(roll);
-
-    if (roll === 6) {
-        playerTurn.innerHTML = "";
-        playerTurn.innerHTML += `
-             <li class="story-board__event">${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN! <div class="spinner-grow text-muted"></div></li>
-            `;
-    } else {
-        playerTurn.innerHTML = "";
-        playerTurn.innerHTML += `
-             <li class="story-board__event">NEXT PLAYER IS ${nextPlayer[person].name} <div class="spinner-grow text-muted"></div></li>
-            `;
-    }
-}
 
 //dice roll and and token movement
 window.rollDice = () => {
     const max = 6;
     roll = Math.ceil(Math.random() * max);
     currentPlayer = players[currentPlayerTurn];
-    nextPlayer = players;
-
     currentRoll = diceEyes[roll];
     showTurn();
 
@@ -122,27 +93,21 @@ window.rollDice = () => {
         currentPlayer.position++;
         if (counter === roll) {
             clearInterval(interval);
+            checkTrap();
         }
         if (currentPlayer.position > 30) {
             loadWinner();
         }
         renderBoard();
-    }, 400);
-
-    function loadWinner() {
-        // window.localStorage.clear();
-        var winner = {
-            name: currentPlayer.name,
-            token: currentPlayer.token,
-        };
-        localStorage.setItem("winner", JSON.stringify(winner));
-        window.location.replace("win.html");
-    }
+    }, 500);
 
     //check if player landed on trap and display trap modal
-    traps.forEach((trap) => {
-        if (trap.start === currentPlayer.position) {
-            modalBoard.innerHTML += `
+
+    function checkTrap() {
+        traps.forEach((trap) => {
+            if (trap.start === currentPlayer.position) {
+                currentPlayer.position = trap.end;
+                modalBoard.innerHTML += `
         <div class="modal" id="trapModal">
            <div class="modal-dialog">
     <div class="modal-content">
@@ -163,20 +128,21 @@ window.rollDice = () => {
   </div>
   </div>
                     `;
-            $("#trapModal").modal("show");
+                $("#trapModal").modal("show");
 
-            //show trap event in storyboard
-            const liEvent = document.createElement("li");
-            const trapEvent = document.createTextNode(
-                currentPlayer.name + trap.description + currentPlayer.position
-            );
-            storyBoard.prepend(liEvent);
-            liEvent.append(trapEvent);
-            liEvent.classList.add("story-board__event");
-        }
-    });
+                //show trap event in storyboard
+                const liEvent = document.createElement("li");
+                const trapEvent = document.createTextNode(
+                    currentPlayer.name + trap.description + currentPlayer.position
+                );
+                storyBoard.prepend(liEvent);
+                liEvent.append(trapEvent);
+                liEvent.classList.add("story-board__event");
+            }
+        });
+    }
+
     //determine whos turn it is
-
     if (roll < 6) {
         currentPlayerTurn++;
     }
@@ -188,12 +154,33 @@ window.rollDice = () => {
     renderBoard();
 };
 
+//display whos turn it is to throw dice
+
+function showTurn() {
+    if (currentPlayerTurn === 1) {
+        nextPlayer = 0;
+    } else {
+        nextPlayer = 1;
+    }
+
+    if (roll === 6) {
+        playerTurn.innerHTML = "";
+        playerTurn.innerHTML += `
+             <li class="story-board__event">${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN! <div class="spinner-grow text-muted"></div></li>
+            `;
+    } else {
+        playerTurn.innerHTML = "";
+        playerTurn.innerHTML += `
+             <li class="story-board__event">NEXT PLAYER IS ${players[nextPlayer].name} <div class="spinner-grow text-muted"></div></li>
+            `;
+    }
+}
+
 //create the board
 const width = 5;
 const height = 5;
 const board = [];
 let position = 0;
-let whiteSquare = false;
 
 for (var y = height; y >= 0; y--) {
     let row = [];
@@ -204,10 +191,7 @@ for (var y = height; y >= 0; y--) {
             y,
             occupied: null,
             position,
-            color: whiteSquare ? "white" : "blue",
-            traps: "red",
         });
-        whiteSquare = !whiteSquare;
         position++;
     }
 }
@@ -241,23 +225,25 @@ const players = [{
         name: player.name,
         position: 0,
         token: player.token,
+        class: "game-token__player1",
     },
     {
         name: player2.name,
         position: 0,
         token: player2.token,
+        class: "game-token__player2",
     },
 ];
 
 //determine the location of the traps and where user will end when hitting them.
 const traps = [{
-        start: 2,
-        end: 1,
+        start: 3,
+        end: 2,
         description: "HIDES DURING NED STARK'S EXECUTION AND RETREATS TO TILE",
     },
     {
-        start: 3,
-        end: 1,
+        start: 8,
+        end: 2,
         description: "hides during Ned Stark's execution and retreats to tile",
     },
     {
@@ -277,45 +263,62 @@ const traps = [{
     },
 ];
 
-const boardSizeConst = 120;
+const boardSize = 120;
 //render Gameboard
 const renderBoard = () => {
-    let boardHTML = "";
+    boardHTML = "";
     board.forEach((row) => {
         row.forEach((square) => {
             boardHTML += `<div class="square" style="top:${
-        square.y * boardSizeConst
-      }px; left:${square.x * boardSizeConst}px; border-color:${
-        square.color
+        square.y * boardSize
+      }px; left:${square.x * boardSize}px;
       }"></div>`;
             traps.forEach((trap) => {
                 if (trap.start === square.position) {
-                    boardHTML += `<div class="square" style="top:${
-            square.y * boardSizeConst
-          }px; left:${square.x * boardSizeConst}px; background-color:${
-            square.traps
+                    boardHTML += `<div class="square square__trap" style="top:${
+            square.y * boardSize
+          }px; left:${square.x * boardSize}px;
           }"></div>`;
                 }
             });
         });
     });
-
     //positioning of each player and token
+
     players.forEach((player) => {
-        let square = 0;
         board.forEach((row) => {
             row.forEach((square) => {
                 if (square.position === player.position) {
-                    boardHTML += `<img class="game-token" id="hello" src="${
+                    boardHTML += `<img class="game-token ${player.class}" src="${
             player.token
-          }" alt="player token" style="top:${
-            square.y * boardSizeConst + 10
-          }px; left:${square.x * boardSizeConst + 10}px;">`;
+          }" id="boardToken" alt="player token" style="top:${
+            square.y * boardSize + 10
+          }px; left:${square.x * boardSize + 10}px;">`;
+                }
+                //change token style if players are on same tile.
+                if (players[0].position !== players[1].position) {
+                    console.log(players[0].class);
+                    player.class = "";
+                } else {
+                    (players[0].class = "game-token__player1"),
+                    (players[1].class = "game-token__player2");
                 }
             });
         });
     });
+
     //board placement
     document.getElementById("board").innerHTML = boardHTML;
 };
 renderBoard();
+
+//Store winner in localStorage and load winning page
+function loadWinner() {
+    window.localStorage.clear();
+    var winner = {
+        name: currentPlayer.name,
+        token: currentPlayer.token,
+    };
+    localStorage.setItem("winner", JSON.stringify(winner));
+    window.location.replace("win.html");
+}

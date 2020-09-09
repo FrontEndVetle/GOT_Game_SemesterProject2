@@ -25,6 +25,15 @@ body {
     &__token {
         width: 30%;
     }
+    &__game {
+        &:hover {
+            pointer-events: none;
+            box-shadow: none;
+            box-shadow: none;
+            transition: none;
+            transform: none;
+        }
+    }
 }
 
 .selected-style {

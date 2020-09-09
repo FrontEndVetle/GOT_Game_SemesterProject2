@@ -1,12 +1,3 @@
-//game background
-body {
-    background: url(../images/map.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 50px;
-    border-radius: 5%;
-}
-
 //storyboard
 .story-board {
     width: 350px;
@@ -35,17 +26,34 @@ body {
     width: 110px;
     height: 110px;
     border: 5px solid;
+    background-color: blue;
+    &__trap {
+        background-color: red;
+    }
 }
 
 //tokens on gameboard
 .game-token {
     width: 80px;
     height: 80px;
-    position: absolute;
     &__fighters {
         margin-top: 15px;
         left: 30%;
     }
+    &__player1 {
+        margin-top: 10px;
+        width: 50px;
+        height: 120px;
+    }
+    &__player2 {
+        height: 50px;
+        width: 130px;
+        clear: both;
+    }
+}
+
+.player1 {
+    width: 500px;
 }
 
 .myStyle {
