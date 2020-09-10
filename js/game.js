@@ -181,6 +181,7 @@ const width = 5;
 const height = 5;
 const board = [];
 let position = 0;
+let pattern = false;
 
 for (var y = height; y >= 0; y--) {
     let row = [];
@@ -191,7 +192,10 @@ for (var y = height; y >= 0; y--) {
             y,
             occupied: null,
             position,
+            color: pattern ? "white" : "blue",
+            traps: "red",
         });
+        pattern = !pattern;
         position++;
     }
 }
@@ -266,23 +270,26 @@ const traps = [{
 const boardSize = 120;
 //render Gameboard
 const renderBoard = () => {
-    boardHTML = "";
+    let boardHTML = "";
     board.forEach((row) => {
         row.forEach((square) => {
             boardHTML += `<div class="square" style="top:${
         square.y * boardSize
-      }px; left:${square.x * boardSize}px;
+      }px; left:${square.x * boardSize}px; background-color:${
+        square.color
       }"></div>`;
             traps.forEach((trap) => {
                 if (trap.start === square.position) {
-                    boardHTML += `<div class="square square__trap" style="top:${
+                    boardHTML += `<div class="square" style="top:${
             square.y * boardSize
-          }px; left:${square.x * boardSize}px;
+          }px; left:${square.x * boardSize}px; background-color:${
+            square.traps
           }"></div>`;
                 }
             });
         });
     });
+
     //positioning of each player and token
 
     players.forEach((player) => {
@@ -309,6 +316,7 @@ const renderBoard = () => {
 
     //board placement
     document.getElementById("board").innerHTML = boardHTML;
+    boardHTML = document.getElementById("board");
 };
 renderBoard();
 
