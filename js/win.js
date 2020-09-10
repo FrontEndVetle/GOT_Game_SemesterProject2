@@ -24,8 +24,8 @@ var mouse = {
     y: undefined,
 };
 
-let maxSizeToken = 200;
-let minSizeToken = 100;
+let maxSizeToken = 100;
+let minSizeToken = 50;
 
 window.addEventListener("mousemove", function(event) {
     mouse.x = event.x;
@@ -34,7 +34,7 @@ window.addEventListener("mousemove", function(event) {
 
 //randomize token travelpattern, speed and size.
 for (var i = 0; i < 30; i++) {
-    let randomSize = Math.ceil(Math.random() * 0.5 + 1);
+    let randomSize = Math.ceil(Math.random() * 5 + 1);
     let imgW = imgObj.width / randomSize;
     let imgH = imgObj.height / randomSize;
     let x = Math.random() * window.innerWidth;
@@ -69,12 +69,12 @@ function Token(img, x, y, dx, dy, imgW, imgH) {
 
         //check if mouse is hovering a token
         if (
-            mouse.x - this.x < 150 &&
-            mouse.x - this.x > -150 &&
-            mouse.y - this.y < 150 &&
-            mouse.y - this.y > -150
+            mouse.x - this.x < 100 &&
+            mouse.x - this.x > -100 &&
+            mouse.y - this.y < 100 &&
+            mouse.y - this.y > -100
         ) {
-            if (this.imgW < 200 && this.imgH < maxSizeToken) {
+            if (this.imgW < 100 && this.imgH < maxSizeToken) {
                 this.imgW += 5;
                 this.imgH += 5;
             }

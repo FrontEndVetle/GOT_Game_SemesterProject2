@@ -45,10 +45,10 @@
             "Princess of Dragonstone"
         ],
         "Aliases": [
+            "Mother of Dragons",
             "Dany",
             "Daenerys Stormborn",
             "The Unburnt",
-            "Mother of Dragons",
             "Mother",
             "Mhysa",
             "The Silver Queen",
@@ -82,7 +82,7 @@
         "Id": 3,
         "Name": "STANNIS BARATHEON",
         "IsFemale": false,
-        "Culture": "",
+        "Culture": "Stormlander",
         "Titles": [
             "Master of ships (formerly)",
             "Lord of Dragonstone",
@@ -99,7 +99,7 @@
         ],
         "Banner": ["images/baratheon.png"],
         "Token": ["images/stannis.svg"],
-        "Born": "264 AC",
+        "Born": "264 AC, at Storm's End",
         "Died": "",
         "Father": 986,
         "Mother": 230,
@@ -115,7 +115,7 @@
         "Id": 4,
         "Name": "TYRION LANNISTER",
         "IsFemale": false,
-        "Culture": "",
+        "Culture": "Westerlands",
         "Titles": ["Acting Hand of the King (former)", "Master of Coin (former)"],
         "Aliases": [
             "The Imp",
@@ -234,8 +234,9 @@
         "Culture": "Northmen",
         "Titles": ["Lord Commander of the Night's Watch"],
         "Aliases": [
-            "Lord Snow",
             "Ned Stark's Bastard",
+            "Lord Snow",
+
             "The Snow of Winterfell",
             "The Crow-Come-Over",
             "The 998th Lord Commander of the Night's Watch",
@@ -245,7 +246,7 @@
         ],
         "Banner": ["images/stark.png"],
         "Token": ["images/jon.svg"],
-        "Born": "In 283 AC",
+        "Born": "In 283 AC, Tower of Joy",
         "Died": "",
         "Father": null,
         "Mother": null,
@@ -344,7 +345,7 @@
         "Banner": ["images/greyjoy.png"],
         "Token": ["images/euron.svg"],
         "Aliases": ["Crow's Eye", "Euron Crow's Eye"],
-        "Born": "or before 267 AC",
+        "Born": "256-268 AC, at Pyke",
         "Died": "",
         "Father": 836,
         "Mother": null,

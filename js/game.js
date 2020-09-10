@@ -1,7 +1,7 @@
 //get DOM elements
 const storyBoard = document.getElementById("story-board-list");
 const modalBoard = document.querySelector(".modalsHere");
-let playerTurn = document.getElementById("playerTurn");
+let playerTurn = document.getElementById("nextPlayer");
 let boardHTML;
 
 //player starts
@@ -20,14 +20,14 @@ function createPlayer() {
     <div class="card cards cards__game">
     <img class="card-img-top cards__img cards__img--game" src="${player.banner}" alt="Card image cap">
     <div class="card-body">
-                <h4 class="card-title cards__title">${player.name}</h4>
+                <h3 class="card-title cards__title">${player.name}</h3>
                   <ul class="list-group list-group-flush">
                   </div>
                         </div>
                         <img class="game-token game-token__fighters" src="${player.token}" alt="player token">`;
     playerTurn.innerHTML = "";
     playerTurn.innerHTML += `
-             <p class="player-turn__text">NEXT PLAYER IS ${player.name} <div class="spinner-grow text-muted"></div></p>
+           <p class="player-turn">NEXT PLAYER IS ${player.name}<img class="player-turn__token" src="${player.token}" alt="player token"></p>
             `;
 }
 createPlayer();
@@ -166,12 +166,12 @@ function showTurn() {
     if (roll === 6) {
         playerTurn.innerHTML = "";
         playerTurn.innerHTML += `
-             <p class="player-turn__text">${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN! <div class="spinner-grow text-muted"></div></p>
+             <p class="player-turn">${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN!<img class="player-turn__token" src="${currentPlayer.token}" alt="player token"></p>
             `;
     } else {
         playerTurn.innerHTML = "";
         playerTurn.innerHTML += `
-             <p class="player-turn__text">NEXT PLAYER IS ${players[nextPlayer].name} <div class="spinner-grow text-muted"></div></p>
+             <p class="player-turn">NEXT PLAYER IS ${players[nextPlayer].name}<img class="player-turn__token" src="${players[nextPlayer].token}" alt="player token"></p>
             `;
     }
 }
@@ -266,7 +266,7 @@ for (var y = height; y >= 0; y--) {
     }
 }
 
-const boardSize = 130;
+const boardSize = 75;
 //render Gameboard
 const renderBoard = () => {
     let boardHTML = "";
@@ -298,8 +298,8 @@ const renderBoard = () => {
                     boardHTML += `<img class="game-token ${player.class}" src="${
             player.token
           }" id="boardToken" alt="player token" style="top:${
-            square.y * boardSize + 16
-          }px; left:${square.x * boardSize + 16}px;">`;
+            square.y * boardSize + 10
+          }px; left:${square.x * boardSize + 10}px;">`;
                 }
                 //change token style if players are on same tile.
                 if (players[0].position !== players[1].position) {
