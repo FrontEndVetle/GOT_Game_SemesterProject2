@@ -27,7 +27,7 @@ function createPlayer() {
                         <img class="game-token game-token__fighters" src="${player.token}" alt="player token">`;
     playerTurn.innerHTML = "";
     playerTurn.innerHTML += `
-             <li class="story-board__event">NEXT PLAYER IS ${player.name} <div class="spinner-grow text-muted"></div></li>
+             <p class="player-turn__text">NEXT PLAYER IS ${player.name} <div class="spinner-grow text-muted"></div></p>
             `;
 }
 createPlayer();
@@ -95,7 +95,7 @@ window.rollDice = () => {
             clearInterval(interval);
             checkTrap();
         }
-        if (currentPlayer.position > 30) {
+        if (currentPlayer.position > 29) {
             loadWinner();
         }
         renderBoard();
@@ -166,37 +166,13 @@ function showTurn() {
     if (roll === 6) {
         playerTurn.innerHTML = "";
         playerTurn.innerHTML += `
-             <li class="story-board__event">${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN! <div class="spinner-grow text-muted"></div></li>
+             <p class="player-turn__text">${currentPlayer.name} ROLLED A SIX AND CAN ROLL AGAIN! <div class="spinner-grow text-muted"></div></p>
             `;
     } else {
         playerTurn.innerHTML = "";
         playerTurn.innerHTML += `
-             <li class="story-board__event">NEXT PLAYER IS ${players[nextPlayer].name} <div class="spinner-grow text-muted"></div></li>
+             <p class="player-turn__text">NEXT PLAYER IS ${players[nextPlayer].name} <div class="spinner-grow text-muted"></div></p>
             `;
-    }
-}
-
-//create the board
-const width = 5;
-const height = 5;
-const board = [];
-let position = 0;
-let pattern = false;
-
-for (var y = height; y >= 0; y--) {
-    let row = [];
-    board.push(row);
-    for (var x = 0; x < width; x++) {
-        row.push({
-            x,
-            y,
-            occupied: null,
-            position,
-            color: pattern ? "white" : "blue",
-            traps: "red",
-        });
-        pattern = !pattern;
-        position++;
     }
 }
 
@@ -267,7 +243,30 @@ const traps = [{
     },
 ];
 
-const boardSize = 120;
+//create the board
+const width = 5;
+const height = 5;
+const board = [];
+let position = 0;
+let pattern = false;
+
+for (var y = height; y >= 0; y--) {
+    let row = [];
+    board.push(row);
+    for (var x = 0; x < width; x++) {
+        row.push({
+            x,
+            y,
+            occupied: null,
+            position,
+            color: pattern ? "red" : "black",
+        });
+        pattern = !pattern;
+        position++;
+    }
+}
+
+const boardSize = 130;
 //render Gameboard
 const renderBoard = () => {
     let boardHTML = "";
@@ -280,7 +279,7 @@ const renderBoard = () => {
       }"></div>`;
             traps.forEach((trap) => {
                 if (trap.start === square.position) {
-                    boardHTML += `<div class="square" style="top:${
+                    boardHTML += `<div class="square square__trap" style="top:${
             square.y * boardSize
           }px; left:${square.x * boardSize}px; background-color:${
             square.traps
@@ -299,8 +298,8 @@ const renderBoard = () => {
                     boardHTML += `<img class="game-token ${player.class}" src="${
             player.token
           }" id="boardToken" alt="player token" style="top:${
-            square.y * boardSize + 10
-          }px; left:${square.x * boardSize + 10}px;">`;
+            square.y * boardSize + 16
+          }px; left:${square.x * boardSize + 16}px;">`;
                 }
                 //change token style if players are on same tile.
                 if (players[0].position !== players[1].position) {
