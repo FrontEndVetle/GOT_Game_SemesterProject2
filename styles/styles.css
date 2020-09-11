@@ -187,7 +187,7 @@ body {
 }
 
 .selected-style {
-  border: 7px solid red;
+  border: 3px solid #f70a0a;
   opacity: 0.8;
 }
 
