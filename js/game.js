@@ -255,7 +255,7 @@ const jokers = [{
     {
         start: 14,
         end: 1,
-        description: "MUST GO INTO HIDING AFTER THE RED WEDDING. MOVE TO TILE",
+        description: "MUST GO INTO HIDING AFTER THE RED WEDDING. MOVE BACK TO START",
         img: "images/wedding.jpg",
     },
     {
