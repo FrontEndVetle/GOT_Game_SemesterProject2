@@ -3,6 +3,19 @@ const storyBoard = document.getElementById("story-board-list");
 const modalBoard = document.querySelector(".modalsHere");
 let playerTurn = document.getElementById("nextPlayer");
 let boardHTML;
+let moveAudio;
+let diceAudio;
+
+//mute audio/sounds
+function enableMute() {
+    moveAudio.muted = true;
+    diceAudio.muted = true;
+}
+
+function disableMute() {
+    moveAudio.muted = false;
+    diceAudio.muted = false;
+}
 
 //player starts
 let currentPlayerTurn = 0;
@@ -50,6 +63,8 @@ createplayer2();
 
 //spin button to animate the roll and make unclickable for 2,7 secounds
 $(".rotate").click(function() {
+    diceAudio = document.getElementById("diceAudio");
+    diceAudio.play();
     $(this).toggleClass("down");
     document.getElementById("rollBtn").disabled = true;
     setTimeout(function() {
@@ -88,7 +103,7 @@ window.rollDice = () => {
     //add dice value to current position of player and animate movement
     var counter = 0;
     var interval = setInterval(function() {
-        var moveAudio = document.getElementById("tokenAudio");
+        moveAudio = document.getElementById("tokenAudio");
         moveAudio.play();
 
         counter++;
@@ -260,7 +275,7 @@ const jokers = [{
     {
         start: 24,
         end: 26,
-        description: "ARYA HAS KILLED THE THE KNIGHT KING. NO BOUNDARIES LEFT, RUN TWO SPACES",
+        description: "HEARD THAT THE NIGHT KING IS DEAD. NO BOUNDARIES LEFT, RUN TWO SPACES",
         img: "images/winter.jpg",
     },
     {

@@ -14,6 +14,7 @@
 
 <body>
     <audio id="tokenAudio" src="sound/token-audio.mp3" alt="token sound by Zapsplat.com"></audio>
+    <audio id="diceAudio" src="sound/dice.mp3" alt="thrown dice sound by Zapsplat.com"></audio>
 
     <header>
         <button class="openbtn" onclick="openNav()">MENU ☰</button>
@@ -32,6 +33,9 @@
           RESTART GAME
           <i class="fa fa-undo"></i>
         </a>
+            <button class="btn btn-primary" onclick="enableMute()" type="button">Mute sound</button>
+            <button class="btn btn-primary" onclick="disableMute()" type="button">Enable sound</button>
+
         </div>
 
         <div class="modal" id="rulesModal">

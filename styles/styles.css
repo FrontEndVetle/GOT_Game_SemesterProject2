@@ -217,19 +217,23 @@ body {
   display: none;
   border-radius: 3%;
   margin-top: 40px;
+  display: block;
+  height: 450px;
 }
 
 .story-board__event {
   margin-top: 30px;
-  color: black;
+  color: #0c0c0c;
   padding: 10px;
 }
 
 .game-area {
   left: 100px;
-  border: 2px solid yellow;
-  background: black;
+  border: 4px solid #e0e01a;
+  background: #0c0c0c;
   margin-bottom: 100px;
+  padding: 30px;
+  width: 1900px;
 }
 
 .square {
@@ -330,29 +334,19 @@ body {
   margin-left: 85px;
 }
 
-@media only screen and (min-width: 768px) {
-  .game-area {
-    border: 2px solid yellow;
-    padding: 30px;
-    background: black;
-    width: 1900px;
-  }
-  .board {
-    position: absolute;
-    top: 60px;
-  }
-  .story-board {
-    display: block;
-    height: 450px;
-  }
-  .rotate {
-    -webkit-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-  }
-  .rotate.down {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+.board {
+  position: absolute;
+  top: 60px;
+}
+
+.rotate {
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+.rotate.down {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 canvas {
@@ -374,7 +368,7 @@ canvas {
 }
 
 .logo {
-  width: 40px;
+  width: 65px;
   margin-bottom: 20px;
   margin-top: 20px;
 }

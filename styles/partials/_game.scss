@@ -9,9 +9,11 @@
     display: none;
     border-radius: 3%;
     margin-top: 40px;
+    display: block;
+    height: 450px;
     &__event {
         margin-top: 30px;
-        color: black;
+        color: $bg-color;
         padding: 10px;
     }
 }
@@ -19,9 +21,11 @@
 //gameboard
 .game-area {
     left: 100px;
-    border: 2px solid yellow;
-    background: black;
+    border: $card-border;
+    background: $bg-color;
     margin-bottom: 100px;
+    padding: 30px;
+    width: 1900px;
 }
 
 .square {
@@ -114,29 +118,19 @@
     }
 }
 
-@media only screen and (min-width: 768px) {
-    .game-area {
-        border: 2px solid yellow;
-        padding: 30px;
-        background: black;
-        width: 1900px;
-    }
-    .board {
-        position: absolute;
-        top: 60px;
-    }
-    .story-board {
-        display: block;
-        height: 450px;
-    }
-    .rotate {
-        -moz-transition: all 0.5s linear;
-        -webkit-transition: all 0.5s linear;
-        transition: all 0.5s linear;
-    }
-    .rotate.down {
-        -moz-transform: rotate(360deg);
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+.board {
+    position: absolute;
+    top: 60px;
+}
+
+.rotate {
+    -moz-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+
+.rotate.down {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
 }
