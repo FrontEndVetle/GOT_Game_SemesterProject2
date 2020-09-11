@@ -15,7 +15,7 @@
 <body>
     <header>
         <button class="openbtn" onclick="openNav()">MENU ☰</button>
-        <div id="sidebar" class="sidebar">
+        <div id="sideBar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
             <h4>MAIN MENU</h4>
             <a class="nav-link" href="index.html">
@@ -25,10 +25,6 @@
             <a class="nav-link" data-toggle="modal" data-target="#rulesModal">
           RULES
           <i class="fa fa-newspaper-o"></i>
-        </a>
-            <a class="nav-link" data-toggle="modal" data-target="#changeCharacters">
-          CHANGE CHARACTERS
-          <i class="fa fa-exchange"></i>
         </a>
             <a class="nav-link" href="game.html">
           RESTART GAME
@@ -47,37 +43,18 @@
                     </div>
 
                     <div class="modal-body">
-                        <p>Modal body..</p>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-dismiss="modal">
-                Close
-              </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="changeCharacters">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">CHANGE CHARACTERS</h5>
-                        <button type="button" class="close" data-dismiss="modal">
-                &times;
-              </button>
-                    </div>
-
-                    <div class="modal-body">
                         <p>
-                            Click on the change button below if you want to select new characters
+                            The Iron Race will occur as a duel between two characters. Pick one character for player 1 and one for player 2. The goal is to get to the Iron Throne before your challenger. You take turns throwing the dice and move as many spaces as the dice eyes shows.
+                            If you roll a six you get another throw.
+                        </p>
+                        <p>
+                            Beware of the jokers spread across the board of Westeros. They can give you good fortune or grief if you land on them. They will either send you spaces ahead or make you go backwards.
+                        </p>
+                        When a player has reached the Iron Throne they have won and can celebrate with their companions.
                         </p>
                     </div>
+
                     <div class="modal-footer">
-                        <button type="button" class="btn" onClick="deleteSelection()" data-dismiss="modal">
-                Change
-              </button>
                         <button type="button" class="btn" data-dismiss="modal">
                 Close
               </button>
@@ -126,7 +103,7 @@
                         </div>
                         <div class="col-5">
                             <!--<div id="dice"></div>-->
-                            <img id="dice" class="dice roller-container__dice" src=" images/dice1.png " />
+                            <img id="dice" class="dice roller-container__dice" src=" icons/dice1.png " />
                         </div>
                     </div>
                 </div>

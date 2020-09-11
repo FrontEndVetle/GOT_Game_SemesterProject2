@@ -12,7 +12,7 @@
         ],
         "Aliases": ["The Queen Reagent"],
         "Banner": ["images/lannister.png"],
-        "Token": ["images/cersei.svg"],
+        "Token": ["icons/cersei.svg"],
         "Born": "In 266 AC, at Casterly Rock",
         "Died": "",
         "Father": null,
@@ -58,7 +58,7 @@
             "The Mad King's daughter"
         ],
         "Banner": ["images/targaryen.png"],
-        "Token": ["images/daenerys.svg"],
+        "Token": ["icons/daenerys.svg"],
         "Born": "In 284 AC, at Dragonstone",
         "Died": "",
         "Father": null,
@@ -98,7 +98,7 @@
             "Azor Ahai reborncome again"
         ],
         "Banner": ["images/baratheon.png"],
-        "Token": ["images/stannis.svg"],
+        "Token": ["icons/stannis.svg"],
         "Born": "264 AC, at Storm's End",
         "Died": "",
         "Father": 986,
@@ -131,7 +131,7 @@
             "Dwarf"
         ],
         "Banner": ["images/lannister.png"],
-        "Token": ["images/tyrion.svg"],
+        "Token": ["icons/tyrion.svg"],
         "Born": "In 273 AC, at Casterly Rock",
         "Died": "",
         "Father": null,
@@ -168,7 +168,7 @@
             "Cripple"
         ],
         "Banner": ["images/lannister.png"],
-        "Token": ["images/jaime.svg"],
+        "Token": ["icons/jaime.svg"],
         "Born": "In 266 AC, at Casterly Rock",
         "Died": "",
         "Father": null,
@@ -207,7 +207,7 @@
             "Mercye"
         ],
         "Banner": ["images/stark.png"],
-        "Token": ["images/arya.svg"],
+        "Token": ["icons/arya.svg"],
         "Born": "In 289 AC, at Winterfell",
         "Died": "",
         "Father": null,
@@ -245,7 +245,7 @@
             "Lord Crow"
         ],
         "Banner": ["images/stark.png"],
-        "Token": ["images/jon.svg"],
+        "Token": ["icons/jon.svg"],
         "Born": "In 283 AC, Tower of Joy",
         "Died": "",
         "Father": null,
@@ -282,7 +282,7 @@
             "Theon Kinslayer"
         ],
         "Banner": ["images/greyjoy.png"],
-        "Token": ["images/theon.svg"],
+        "Token": ["icons/theon.svg"],
         "Born": "around 279 AC, at Pyke",
         "Died": "",
         "Father": null,
@@ -310,7 +310,7 @@
         "Titles": ["Princess"],
         "Aliases": ["Little bird", "Alayne Stone", "Jonquil"],
         "Banner": ["images/stark.png"],
-        "Token": ["images/sansa.svg"],
+        "Token": ["icons/sansa.svg"],
         "Born": "In 286 AC, at Winterfell",
         "Died": "",
         "Father": null,
@@ -343,7 +343,7 @@
             "Captain of the Silence"
         ],
         "Banner": ["images/greyjoy.png"],
-        "Token": ["images/euron.svg"],
+        "Token": ["icons/euron.svg"],
         "Aliases": ["Crow's Eye", "Euron Crow's Eye"],
         "Born": "256-268 AC, at Pyke",
         "Died": "",

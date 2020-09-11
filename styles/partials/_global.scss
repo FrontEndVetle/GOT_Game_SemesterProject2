@@ -2,6 +2,7 @@
 .logo {
     width: 40px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 //links
@@ -47,7 +48,7 @@ body {
 
 //modals
 .modal {
-    top: 40%;
+    top: 20%;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -71,5 +72,6 @@ body {
     .logo {
         width: 200px;
         margin-bottom: 30px;
+        margin-top: 40px;
     }
 }

@@ -93,7 +93,7 @@ window.rollDice = () => {
         currentPlayer.position++;
         if (counter === roll) {
             clearInterval(interval);
-            checkTrap();
+            checkJoker();
         }
         if (currentPlayer.position > 29) {
             loadWinner();
@@ -101,24 +101,25 @@ window.rollDice = () => {
         renderBoard();
     }, 500);
 
-    //check if player landed on trap and display trap modal
+    //check if player landed on joker and display joker modal
 
-    function checkTrap() {
-        traps.forEach((trap) => {
-            if (trap.start === currentPlayer.position) {
-                currentPlayer.position = trap.end;
-                modalBoard.innerHTML += `
-        <div class="modal" id="trapModal">
+    function checkJoker() {
+        jokers.forEach((joker) => {
+            if (joker.start === currentPlayer.position) {
+                currentPlayer.position = joker.end;
+                modalBoard.innerHTML = `
+        <div class="modal" id="jokerModal">
            <div class="modal-dialog">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h4 class="modal-title">OH NO!</h4>
+        <h4 class="modal-title">YOU LANDED ON A JOKER!</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <div class="modal-body">
-        ${currentPlayer.name} ${trap.description} ${currentPlayer.position}
+       <img src="${joker.img}" class="joker-modal__img" alt="The game logo" style="width="100%""/>
+        ${currentPlayer.name} ${joker.description}
       </div>
 
       <div class="modal-footer">
@@ -128,15 +129,15 @@ window.rollDice = () => {
   </div>
   </div>
                     `;
-                $("#trapModal").modal("show");
+                $("#jokerModal").modal("show");
 
-                //show trap event in storyboard
+                //show joker event in storyboard
                 const liEvent = document.createElement("li");
-                const trapEvent = document.createTextNode(
-                    currentPlayer.name + trap.description + currentPlayer.position
+                const jokerEvent = document.createTextNode(
+                    currentPlayer.name + joker.description
                 );
                 storyBoard.prepend(liEvent);
-                liEvent.append(trapEvent);
+                liEvent.append(jokerEvent);
                 liEvent.classList.add("story-board__event");
             }
         });
@@ -181,22 +182,22 @@ const diceEyes = [{
         path: "",
     },
     {
-        path: "images/dice1.png",
+        path: "icons/dice1.png",
     },
     {
-        path: "images/dice2.png",
+        path: "icons/dice2.png",
     },
     {
-        path: "images/dice3.png",
+        path: "icons/dice3.png",
     },
     {
-        path: "images/dice4.png",
+        path: "icons/dice4.png",
     },
     {
-        path: "images/dice5.png",
+        path: "icons/dice5.png",
     },
     {
-        path: "images/dice6.png",
+        path: "icons/dice6.png",
     },
 ];
 
@@ -215,31 +216,56 @@ const players = [{
     },
 ];
 
-//determine the location of the traps and where user will end when hitting them.
-const traps = [{
+//determine the location of the jokers and where user will end when hitting them.
+const jokers = [{
         start: 3,
         end: 2,
-        description: "HIDES DURING NED STARK'S EXECUTION AND RETREATS TO TILE",
+        description: "HIDES DURING NED STARK'S EXECUTION AND RETREATS 1 SPACE",
+        img: "images/eddard.png",
     },
     {
-        start: 8,
-        end: 2,
-        description: "hides during Ned Stark's execution and retreats to tile",
+        start: 5,
+        end: 18,
+        description: "GET'S A RIDE BY VISERION THE DRAGON FOR 13 SPACES",
+        img: "images/dragon.jpg",
     },
     {
-        start: 23,
+        start: 7,
+        end: 9,
+        description: "IS EXHAUSTED AND GETS CARRIED 2 SPACES BY HODOR",
+        img: "images/hodor.jpg",
+    },
+    {
+        start: 14,
         end: 1,
-        description: "hides during Ned Stark's execution and retreats to tile",
+        description: "MUST GO INTO HIDING AFTER THE RED WEDDING. MOVE TO TILE",
+        img: "images/wedding.jpg",
     },
+    {
+        start: 16,
+        end: 15,
+        description: "FINDS OUT ABOUT THE SONS OF THE HARPY COUP, AND HIDES 1 SPACE BACK",
+        img: "images/harpy.jpg",
+    },
+
     {
         start: 19,
-        end: 10,
-        description: "hides during Ned Stark's execution and retreats to tile",
+        end: 12,
+        description: "FIGHT HOPELESSLY IN THE BATTLE OF HARDHOME. ROW BACK 7 SPACES",
+        img: "images/hardhome.jpg",
+    },
+
+    {
+        start: 24,
+        end: 26,
+        description: "ARYA HAS KILLED THE THE KNIGHT KING. NO BOUNDARIES LEFT, RUN TWO SPACES",
+        img: "images/winter.jpg",
     },
     {
-        start: 15,
-        end: 1,
-        description: "hides during Ned Stark's execution and retreats to tile",
+        start: 25,
+        end: 15,
+        description: "IS MED BY A ROGUE DROGON, RETREAT FOR YOUR LIFE 10 SPACES",
+        img: "images/dragon.jpg",
     },
 ];
 
@@ -277,12 +303,12 @@ const renderBoard = () => {
       }px; left:${square.x * boardSize}px; background-color:${
         square.color
       }"></div>`;
-            traps.forEach((trap) => {
-                if (trap.start === square.position) {
-                    boardHTML += `<div class="square square__trap" style="top:${
+            jokers.forEach((joker) => {
+                if (joker.start === square.position) {
+                    boardHTML += `<div class="square square__joker" style="top:${
             square.y * boardSize
           }px; left:${square.x * boardSize}px; background-color:${
-            square.traps
+            square.jokers
           }"></div>`;
                 }
             });
@@ -303,7 +329,6 @@ const renderBoard = () => {
                 }
                 //change token style if players are on same tile.
                 if (players[0].position !== players[1].position) {
-                    console.log(players[0].class);
                     player.class = "";
                 } else {
                     (players[0].class = "game-token__player1"),

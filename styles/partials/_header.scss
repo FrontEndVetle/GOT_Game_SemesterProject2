@@ -41,6 +41,7 @@
 @media (min-width: 481px) and (max-width: 767px) {
     .openbtn {
         font-size: $nav-text-t;
+        position: fixed;
     }
 }
 
@@ -50,6 +51,7 @@
     }
     .openbtn {
         font-size: $nav-text-d;
+        position: fixed;
     }
     .sidebar a {
         padding: 20px 10px 6px 30px;
