@@ -48,13 +48,13 @@ function createplayer2() {
 }
 createplayer2();
 
-//spin button to animate the roll and make unclickable for 2 secounds
+//spin button to animate the roll and make unclickable for 2,7 secounds
 $(".rotate").click(function() {
     $(this).toggleClass("down");
     document.getElementById("rollBtn").disabled = true;
     setTimeout(function() {
         document.getElementById("rollBtn").disabled = false;
-    }, 2000);
+    }, 2700);
 });
 
 //dice roll and and token movement
@@ -298,8 +298,8 @@ const renderBoard = () => {
                     boardHTML += `<img class="game-token ${player.class}" src="${
             player.token
           }" id="boardToken" alt="player token" style="top:${
-            square.y * boardSize + 10
-          }px; left:${square.x * boardSize + 10}px;">`;
+            square.y * boardSize + 8
+          }px; left:${square.x * boardSize + 8}px;">`;
                 }
                 //change token style if players are on same tile.
                 if (players[0].position !== players[1].position) {

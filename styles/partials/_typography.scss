@@ -34,6 +34,10 @@ h6 {
     text-align: center;
 }
 
+.nav-link {
+    font-size: $nav-text-m;
+}
+
 @media (min-width: 481px) and (max-width: 767px) {
     h1 {
         font-size: $heading-size-t;
@@ -49,6 +53,9 @@ h6 {
     }
     body {
         font-size: $body-text-t;
+    }
+    .nav-link {
+        font-size: $nav-text-t;
     }
 }
 
@@ -67,5 +74,8 @@ h6 {
     }
     body {
         font-size: $body-text-d;
+    }
+    .nav-link {
+        font-size: $nav-text-d;
     }
 }
