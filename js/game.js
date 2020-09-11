@@ -88,7 +88,9 @@ window.rollDice = () => {
     //add dice value to current position of player and animate movement
     var counter = 0;
     var interval = setInterval(function() {
-        // custom code here
+        var moveAudio = document.getElementById("tokenAudio");
+        moveAudio.play();
+
         counter++;
         currentPlayer.position++;
         if (counter === roll) {

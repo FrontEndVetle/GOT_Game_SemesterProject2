@@ -1,3 +1,6 @@
+window.onload = function() {
+    document.getElementById("winAudio").play();
+};
 //get canvas and display in full screen of display
 let canvas = document.getElementById("canvas");
 canvas.width = window.innerWidth;
