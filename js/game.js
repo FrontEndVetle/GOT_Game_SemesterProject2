@@ -275,7 +275,7 @@ const jokers = [{
     {
         start: 24,
         end: 26,
-        description: "HEARD THAT THE NIGHT KING IS DEAD. NO BOUNDARIES LEFT, RUN TWO SPACES",
+        description: "HEARD THAT THE NIGHT KING IS DEAD. NO BOUNDARIES LEFT, RUN TWO SPACES FORWARD",
         img: "images/winter.jpg",
     },
     {
@@ -302,7 +302,7 @@ for (var y = height; y >= 0; y--) {
             y,
             occupied: null,
             position,
-            color: pattern ? "red" : "black",
+            color: pattern ? "#2C4459" : "#000",
         });
         pattern = !pattern;
         position++;

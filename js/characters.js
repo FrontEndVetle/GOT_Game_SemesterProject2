@@ -18,7 +18,7 @@ fetch("api/characters.json")
 function loopThroughCharacters(characters) {
     var characterDisplay = document.querySelector(".card-container");
     for (var i = 0; i < characters.length; i++) {
-        characterDisplay.innerHTML += `<div class="col-xs-12 col-sm"><div class="card cards cards__index">
+        characterDisplay.innerHTML += `<div class="col-xs-5 col-md"><div class="card cards cards__index">
             <img class="card-img-top cards__img" src="${characters[i].Banner}" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title cards__title">${characters[i].Name}</h4>
