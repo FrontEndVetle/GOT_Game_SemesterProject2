@@ -38,6 +38,12 @@
     background-color: $btn-hover;
 }
 
+footer {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    background: $bg-color;
+}
+
 @media (min-width: 481px) and (max-width: 767px) {
     .openbtn {
         font-size: $nav-text-t;

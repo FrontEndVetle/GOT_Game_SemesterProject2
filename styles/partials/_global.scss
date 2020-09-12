@@ -1,3 +1,7 @@
+canvas {
+    width: 100%;
+}
+
 //logo
 .logo {
     width: 65px;
@@ -32,7 +36,7 @@ body {
     color: $text-color;
     &__roll {
         width: 100px;
-        height: 55px;
+        height: 60px;
         padding: 5px;
         margin-left: 22px;
     }
@@ -49,6 +53,9 @@ body {
 //modals
 .modal {
     top: 20%;
+    &-content {
+        border: $card-border;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
