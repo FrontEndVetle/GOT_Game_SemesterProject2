@@ -237,25 +237,25 @@ const players = [{
 const jokers = [{
         start: 3,
         end: 2,
-        description: "HIDES DURING NED STARK'S EXECUTION AND RETREATS 1 SPACE",
+        description: " HIDES DURING NED STARK'S EXECUTION AND RETREATS 1 SPACE",
         img: "images/eddard.png",
     },
     {
         start: 5,
         end: 18,
-        description: "GET'S A RIDE BY VISERION THE DRAGON FOR 13 SPACES",
+        description: " GET'S A RIDE BY VISERION THE DRAGON FOR 13 SPACES",
         img: "images/dragon.jpg",
     },
     {
         start: 7,
         end: 9,
-        description: "IS EXHAUSTED AND GETS CARRIED 2 SPACES BY HODOR",
+        description: " IS EXHAUSTED AND GETS CARRIED 2 SPACES BY HODOR",
         img: "images/hodor.jpg",
     },
     {
         start: 14,
         end: 1,
-        description: "MUST GO INTO HIDING AFTER THE RED WEDDING. MOVE BACK TO START",
+        description: " MUST GO INTO HIDING AFTER THE RED WEDDING. MOVE BACK TO START",
         img: "images/wedding.jpg",
     },
     {
@@ -268,7 +268,7 @@ const jokers = [{
     {
         start: 19,
         end: 12,
-        description: "FIGHT HOPELESSLY IN THE BATTLE OF HARDHOME. ROW BACK 7 SPACES",
+        description: " FIGHT HOPELESSLY IN THE BATTLE OF HARDHOME. ROW BACK 7 SPACES",
         img: "images/hardhome.jpg",
     },
 
