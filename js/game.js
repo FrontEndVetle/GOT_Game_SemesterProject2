@@ -78,6 +78,7 @@ window.rollDice = () => {
     roll = Math.ceil(Math.random() * max);
     currentPlayer = players[currentPlayerTurn];
     currentRoll = diceEyes[roll];
+    currentPlayer.throws++;
     showTurn();
 
     const liEvent = document.createElement("li");
@@ -108,6 +109,7 @@ window.rollDice = () => {
 
         counter++;
         currentPlayer.position++;
+
         if (counter === roll) {
             clearInterval(interval);
             checkJoker();
@@ -224,12 +226,14 @@ const players = [{
         position: 0,
         token: player.token,
         class: "game-token__player1",
+        throws: 0,
     },
     {
         name: player2.name,
         position: 0,
         token: player2.token,
         class: "game-token__player2",
+        throws: 0,
     },
 ];
 
@@ -367,6 +371,7 @@ function loadWinner() {
     var winner = {
         name: currentPlayer.name,
         token: currentPlayer.token,
+        throws: currentPlayer.throws,
     };
     localStorage.setItem("winner", JSON.stringify(winner));
     window.location.replace("win.html");

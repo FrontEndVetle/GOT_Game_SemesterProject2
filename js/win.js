@@ -12,8 +12,14 @@ let winner = JSON.parse(localStorage.getItem("winner"));
 
 //get DOM element insert name
 let nameHolder = document.getElementById("nameHolder");
-console.log(nameHolder);
+
 nameHolder.innerHTML += `<h1>${winner.name} WON</h1>
+`;
+
+//get DOM element and insert number of times dice thrown
+let throwsHolder = document.getElementById("throwsHolder");
+console.log(nameHolder);
+throwsHolder.innerHTML += `<h2>With ${winner.throws} dice throws</2>
 `;
 
 var imgpath = winner.token;
