@@ -373,7 +373,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   background: rgba(46, 46, 46, 0.8);
-  padding: 40px 200px;
+  padding: 40px 150px;
 }
 
 canvas {
@@ -384,6 +384,10 @@ canvas {
   width: 65px;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.logo__win {
+  width: 100px;
 }
 
 a:hover {
@@ -454,6 +458,9 @@ body {
     width: 200px;
     margin-bottom: 30px;
     margin-top: 40px;
+  }
+  .logo__win {
+    width: 300px;
   }
 }
 /*# sourceMappingURL=styles.css.map */
