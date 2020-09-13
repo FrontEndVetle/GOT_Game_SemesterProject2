@@ -42,7 +42,7 @@ window.addEventListener("mousemove", function(event) {
 });
 
 //randomize token travelpattern, speed and size.
-for (var i = 0; i < 30; i++) {
+for (var i = 0; i < 25; i++) {
     let randomSize = Math.ceil(Math.random() * 5 + 1);
     let imgW = imgObj.width / randomSize;
     let imgH = imgObj.height / randomSize;
