@@ -1,3 +1,10 @@
+/* Color Theme Swatches in Hex
+$Game-of-thrones-1-hex: #A2C0DC;
+$Game-of-thrones-2-hex: #284C58;
+$Game-of-thrones-3-hex: #4C7B8D;
+$Game-of-thrones-4-hex: #EEF8FA;
+$Game-of-thrones-5-hex: #0A0C0E;/*
+
 /*font*/
 
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato&display=swap");
@@ -31,9 +38,7 @@ $btn-text-m: 12px;
 
 $text-color-dark: #2e2e2e;
 $bg-color: #0c0c0c;
-$bg-win: rgb(12,
-12,
-12);
+$bg-win: #2e2e2e;
 $text-color: #e0e0e0;
 $link-hover: #a09f9f;
 $btn-color: #2c4459;
@@ -41,8 +46,6 @@ $btn-hover: #4d748c;
 $hover-a: #343a3f;
 $content-bg: #343a3f;
 $card-border: 3px solid #4d748c;
-$event-bg: rgb(5,
-5,
-5);
+$event-bg: #050505;
 $event-border: 3px solid #fff;
 $selected-card: 3px solid #a30d0d;

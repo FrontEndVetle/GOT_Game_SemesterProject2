@@ -6,6 +6,12 @@ let boardHTML;
 let moveAudio;
 let diceAudio;
 
+//player starts
+let currentPlayerTurn = 0;
+//display next player variable
+let nextPlayer = 0;
+let roll;
+
 //mute audio/sounds
 function enableMute() {
     moveAudio.muted = true;
@@ -16,12 +22,6 @@ function disableMute() {
     moveAudio.muted = false;
     diceAudio.muted = false;
 }
-
-//player starts
-let currentPlayerTurn = 0;
-//display next player variable
-let nextPlayer = 0;
-let roll;
 
 var player = JSON.parse(localStorage.getItem("player"));
 var player2 = JSON.parse(localStorage.getItem("player2"));
