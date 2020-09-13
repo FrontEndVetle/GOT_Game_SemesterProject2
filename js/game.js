@@ -31,7 +31,7 @@ function createPlayer() {
     let playerDisplay = document.querySelector(".player");
     playerDisplay.innerHTML += `
     <div class="card cards cards__game">
-    <img class="card-img-top cards__img cards__img--game" src="${player.banner}" alt="Card image cap">
+    <img class="card-img-top cards__img cards__img--game" src="${player.banner}" alt="house banner">
     <div class="card-body">
                 <h3 class="card-title cards__title">${player.name}</h3>
                   <ul class="list-group list-group-flush">
@@ -51,7 +51,7 @@ function createplayer2() {
     let player2Display = document.querySelector(".player2");
     player2Display.innerHTML += `
     <div class="card cards cards__game">
-    <img class="card-img-top cards__img" src="${player2.banner}" alt="Card image cap">
+    <img class="card-img-top cards__img" src="${player2.banner}" alt="house banner">
     <div class="card-body">
                 <h3 class="card-title cards__title">${player2.name}</h3>
                   <ul class="list-group list-group-flush">
@@ -137,7 +137,7 @@ window.rollDice = () => {
       </div>
 
       <div class="modal-body">
-       <img src="${joker.img}" class="joker-modal__img" alt="The game logo" style="width="100%""/>
+       <img src="${joker.img}" class="joker-modal__img" alt="joker image" style="width="100%""/>
         ${currentPlayer.name} ${joker.description}
       </div>
 

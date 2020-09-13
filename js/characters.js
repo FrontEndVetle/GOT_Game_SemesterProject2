@@ -19,7 +19,7 @@ function loopThroughCharacters(characters) {
     var characterDisplay = document.querySelector(".card-container");
     for (var i = 0; i < characters.length; i++) {
         characterDisplay.innerHTML += `<div class="col-xs-5 col-md"><div class="card cards cards__index">
-            <img class="card-img-top cards__img" src="${characters[i].Banner}" alt="Card image cap">
+            <img class="card-img-top cards__img" src="${characters[i].Banner}" alt="house banner">
             <div class="card-body">
                 <h4 class="card-title cards__title">${characters[i].Name}</h4>
             </div>
@@ -27,7 +27,7 @@ function loopThroughCharacters(characters) {
                 <li class="list-group-item cards__info"><p>BORN:<br> ${characters[i].Born}</p></li>
                 <li class="list-group-item cards__info"><p>CULTURE:<br> ${characters[i].Culture} </p></li>
                 <li class="list-group-item cards__info"><p>ALIAS:<br>  ${characters[i].Aliases[0]}</p></li>
-                 <li class="list-group-item cards__info"><img class="card-img-top cards__token" src="${characters[i].Token}" alt="Card image cap"></li>
+                 <li class="list-group-item cards__info"><img class="card-img-top cards__token" src="${characters[i].Token}" alt="character token"></li>
             </ul>
 
                 <a class="btn"> SELECT</a>
