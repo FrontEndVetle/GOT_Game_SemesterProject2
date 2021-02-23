@@ -193,6 +193,7 @@ body {
 
 .cards__token {
   width: 20%;
+  margin-bottom: 10px;
 }
 
 .selected-style {
@@ -285,6 +286,7 @@ body {
 .game-token__fighters {
   left: 45%;
   width: 40px;
+  margin-top: 10px;
 }
 
 .game-token__player1 {

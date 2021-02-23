@@ -1,23 +1,23 @@
 window.onload = function() {
-    document.getElementById("winAudio").play();
+    document.getElementById('winAudio').play();
 };
 //get canvas and display in full screen of display
-let canvas = document.getElementById("canvas");
+let canvas = document.getElementById('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-let c = canvas.getContext("2d");
+let c = canvas.getContext('2d');
 
 //retrieve winner name and token from localStorage
-let winner = JSON.parse(localStorage.getItem("winner"));
+let winner = JSON.parse(localStorage.getItem('winner'));
 
 //get DOM element insert name
-let nameHolder = document.getElementById("nameHolder");
+let nameHolder = document.getElementById('nameHolder');
 
 nameHolder.innerHTML += `<h1>${winner.name} WON</h1>
 `;
 
 //get DOM element and insert number of times dice thrown
-let throwsHolder = document.getElementById("throwsHolder");
+let throwsHolder = document.getElementById('throwsHolder');
 console.log(nameHolder);
 throwsHolder.innerHTML += `<h2>With ${winner.throws} dice throws</2>
 `;
@@ -36,7 +36,7 @@ var mouse = {
 let maxSizeToken = 100;
 let minSizeToken = 50;
 
-window.addEventListener("mousemove", function(event) {
+window.addEventListener('mousemove', function(event) {
     mouse.x = event.x;
     mouse.y = event.y;
 });
@@ -108,7 +108,7 @@ function animate() {
 }
 
 //run function if browser window is resized so tokens move to new area.
-window.addEventListener("resize", function() {
+window.addEventListener('resize', function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
