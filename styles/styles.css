@@ -383,6 +383,11 @@ canvas {
   width: 100%;
 }
 
+.fa {
+  margin-right: 10px;
+  float: left;
+}
+
 .logo {
   width: 65px;
   margin-bottom: 20px;
